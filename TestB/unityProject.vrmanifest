@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.testb.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\ADMIN\\Desktop\\TestB\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "TestB [Testing]"
+        }
+      }
+    }
+  ]
+}
