@@ -4,12 +4,14 @@ using UnityEngine;
 using Valve.VR;
 
 public class Hand : MonoBehaviour {
+    // For pickup/drop objects
     public SteamVR_Action_Boolean m_GrabAction = null;
-
+    // Added to L/R controller game objects
     private SteamVR_Behaviour_Pose m_Pose = null;
     private FixedJoint m_Joint = null;
-
+    // Current object that the controller is holding
     private Interactable m_CurrentInteractable = null;
+    // List of stuff that the controller is touching
     public List<Interactable> m_ContactInteractables = new List<Interactable>();
 
     private void Awake() {
@@ -21,18 +23,20 @@ public class Hand : MonoBehaviour {
     private void Update() {
         // Down
         if (m_GrabAction.GetStateDown(m_Pose.inputSource)) {
-            print(m_Pose.inputSource + "Trigger Down");
+            // Input source is L or R controller
+            print(m_Pose.inputSource + " Trigger Down");
             Pickup();
         }
 
         // Up
         if (m_GrabAction.GetStateUp(m_Pose.inputSource)) {
-            print(m_Pose.inputSource + "Trigger Up");
+            print(m_Pose.inputSource + " Trigger Up");
             Drop();
         }
     }
 
     private void OnTriggerEnter(Collider other) {
+        // If object is not type "Interactable", simply ignore it
         if (!other.gameObject.CompareTag("Interactable")) {
             return;
         }
@@ -41,6 +45,7 @@ public class Hand : MonoBehaviour {
     } 
 
     private void OnTriggerExit(Collider other) {
+        // If object is not type "Interactable", simply ignore it
         if (!other.gameObject.CompareTag("Interactable")) {
             return;
         }
