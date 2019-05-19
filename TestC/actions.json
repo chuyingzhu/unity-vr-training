@@ -1,47 +1,52 @@
 {
   "actions": [
     {
-      "name": "/actions/default/in/InteractUI",
+      "name": "/actions/Touch/in/InteractUI",
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/Teleport",
+      "name": "/actions/Touch/in/Teleport",
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/GrabPinch",
+      "name": "/actions/Touch/in/GrabPinch",
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/GrabGrip",
+      "name": "/actions/Touch/in/GrabGrip",
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/Pose",
+      "name": "/actions/Touch/in/Pose",
       "type": "pose"
     },
     {
-      "name": "/actions/default/in/SkeletonLeftHand",
+      "name": "/actions/Touch/in/SkeletonLeftHand",
       "type": "skeleton",
       "skeleton": "/skeleton/hand/left"
     },
     {
-      "name": "/actions/default/in/SkeletonRightHand",
+      "name": "/actions/Touch/in/SkeletonRightHand",
       "type": "skeleton",
       "skeleton": "/skeleton/hand/right"
     },
     {
-      "name": "/actions/default/in/Squeeze",
+      "name": "/actions/Touch/in/Squeeze",
       "type": "vector1",
       "requirement": "optional"
     },
     {
-      "name": "/actions/default/in/HeadsetOnHead",
+      "name": "/actions/Touch/in/HeadsetOnHead",
       "type": "boolean",
       "requirement": "optional"
     },
     {
-      "name": "/actions/default/out/Haptic",
+      "name": "/actions/Touch/in/TouchpadPosition",
+      "type": "vector2",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/Touch/out/Haptic",
       "type": "vibration"
     },
     {
@@ -76,7 +81,7 @@
   ],
   "action_sets": [
     {
-      "name": "/actions/default",
+      "name": "/actions/Touch",
       "usage": "single"
     },
     {
@@ -133,15 +138,6 @@
   "localization": [
     {
       "language_tag": "en_US",
-      "/actions/default/in/GrabGrip": "Grab Grip",
-      "/actions/default/in/GrabPinch": "Grab Pinch",
-      "/actions/default/in/HeadsetOnHead": "Headset on head (proximity sensor)",
-      "/actions/default/in/InteractUI": "Interact With UI",
-      "/actions/default/in/Pose": "Pose",
-      "/actions/default/in/SkeletonLeftHand": "Skeleton (Left)",
-      "/actions/default/in/SkeletonRightHand": "Skeleton (Right)",
-      "/actions/default/in/Teleport": "Teleport",
-      "/actions/default/out/Haptic": "Haptic",
       "/actions/platformer/in/Jump": "Jump"
     }
   ]
