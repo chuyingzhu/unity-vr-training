@@ -4,9 +4,9 @@ using UnityEngine;
 using Valve.VR;
 
 public class ViveInput : MonoBehaviour {
-    [SteamVR_DefaultAction("Squeeze")];
-    public SteamVR_Action_Single squeezAction;
+    [SteamVR_DefaultAction("Squeeze")]
 
+    public SteamVR_Action_Single squeezeAction;
     public SteamVR_Action_Vector2 touchPadAction;
 
      // Update is called once per frame
@@ -18,7 +18,7 @@ public class ViveInput : MonoBehaviour {
             print("Grab pinch up");
         }
 
-        float triggerValue = squaazeAction.GetAxis(SteamVR_Input_Sources.Any);
+        float triggerValue = squeezeAction.GetAxis(SteamVR_Input_Sources.Any);
 
         if (triggerValue > 0.0f) {
             print(triggerValue);
