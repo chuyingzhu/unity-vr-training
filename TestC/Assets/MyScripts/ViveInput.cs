@@ -11,12 +11,14 @@ public class ViveInput : MonoBehaviour {
 
      // Update is called once per frame
     void Update() {
-        if (SteamVR_Input.default.inActions.Teleport.GetStateDown(SteamVR_Input_Sources.Any())) {
+        /* 
+        if (SteamVR_Actions._default.Teleport.GetStateDown(SteamVR_Input_Sources.Any)) {
             Debug.Log("TP down");
         }
-        if (SteamVR_Input.default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.Any)) {
+        if (SteamVR_Actions._default.GrabPinch.GetStateUp(SteamVR_Input_Sources.Any)) {
             Debug.Log("Grab pinch up");
-        }
+        }*/
+
 
         float triggerValue = squeezeAction.GetAxis(SteamVR_Input_Sources.Any);
         if (triggerValue > 0.0f) {
@@ -29,4 +31,3 @@ public class ViveInput : MonoBehaviour {
         }
     }
 }
-https://mega.nz/#!ryp1jCjS!bxsCcALL4m6Ft6LjtjxUuLlZG7Mb7r_huiWhl1E7OKM
