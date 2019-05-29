@@ -17,7 +17,7 @@ public class Haptics : MonoBehaviour {
         }
     }
 
-    private void Pulse(float duration, float amplitude, SteamVR_Input_Sources source) {
+    private void Pulse(float duration, float frequency, float amplitude, SteamVR_Input_Sources source) {
         hapticAction.Execute(0, duration, frequency, amplitude, source);
         Debug.Log("Pulse " + source.ToString());
     }
