@@ -25,12 +25,16 @@ public class ControllerGrabObject : MonoBehaviour {
     // this sets up the other collider as a potential grab target.
     public void OnTriggerEnter(Collider other) {
         SetCollidingObject(other);
+        // Debug
+        print("Trigger just entered a collider");
     }
 
     // Ensures that the target is set when the player holds
     // a controller over an object for a while.
     public void OnTriggerStay(Collider other) {
         SetCollidingObject(other);
+        // Debug
+        print("Trigger is staying on a collider");
     }
 
     // When the collider exits an object, abandoning an ungrabbed target,
@@ -40,6 +44,8 @@ public class ControllerGrabObject : MonoBehaviour {
             return;
         }
         collidingObject = null;
+        // Debug
+        print("Trigger just left a collider");
     }
 
     private void GrabObject() {
