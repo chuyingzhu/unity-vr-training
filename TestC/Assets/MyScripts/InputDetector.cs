@@ -3,10 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-public class ViveInput : MonoBehaviour {
+public class InputDetector {
     public SteamVR_Input_Sources handType;
     public SteamVR_Action_Boolean teleportAction;
     public SteamVR_Action_Boolean grabAction;
+
+    public InputDetector() {
+        handType = null;
+        teleportAction = null;
+        grabAction = null;
+    }
+
+    public InputDetector(SteamVR_Input_Sources handType, SteamVR_Action_Boolean teleportAction, SteamVR_Action_Boolean grabAction) {
+        SetHandType(handType);
+        SetTeleportAction(teleportAction);
+        SetGrabAction(grabAction);
+    }
+
+    public void SetHandType(SteamVR_Input_Sources handType) {
+        this.handType = handType;
+    }
+
+    public void SetTeleportAction(SteamVR_Action_Boolean teleportAction) {
+        this.teleportAction = teleportAction;
+    }
+
+    public void SetGrabAction(SteamVR_Action_Boolean grabAction) {
+        this.grabAction = grabAction;
+    }
 
     public bool GetTeleportDown() {
         return teleportAction.GetStateDown(handType);
@@ -16,8 +40,8 @@ public class ViveInput : MonoBehaviour {
         return grabAction.GetState(handType);
     }
 
+    /* 
     void Update() {
-        /*
         if (SteamVR_Actions._default.Teleport.GetStateDown(SteamVR_Input_Sources.Any)) {
             Debug.Log("TP down");
         }
@@ -34,7 +58,7 @@ public class ViveInput : MonoBehaviour {
         if (touchpadValue != Vector2.zero) {
             Debug.Log(touchpadValue);
         }
-        */
+        
 
         if (GetTeleportDown()) {
             print("Teleport " + handType);
@@ -44,4 +68,5 @@ public class ViveInput : MonoBehaviour {
             print("Grab " + handType);
         }
     }
+    */
 }
