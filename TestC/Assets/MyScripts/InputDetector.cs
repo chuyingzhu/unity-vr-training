@@ -4,6 +4,7 @@ using UnityEngine;
 using Valve.VR;
 
 public class InputDetector {
+    /* 
     public SteamVR_Input_Sources handType;
     public SteamVR_Action_Boolean teleportAction;
     public SteamVR_Action_Boolean grabAction;

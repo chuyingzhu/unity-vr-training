@@ -19,13 +19,11 @@ public class VRController : MonoBehaviour {
         m_CharacterController = GetComponent<CharacterController>();
     }
 
-    // Start is called before the first frame update
     private void Start() {
         m_CameraRig = SteamVR_Render.Top().origin;
         m_Head = SteamVR_Render.Top().head;
     }
 
-    // Update is called once per frame
     private void Update() {
         HandleHead();
         HandleHeight();

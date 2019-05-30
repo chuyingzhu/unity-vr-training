@@ -5,6 +5,7 @@ using Valve.VR;
 
 
 public class InputTest : MonoBehaviour {
+    /* 
     public SteamVR_Input_Sources handType;
     public SteamVR_Action_Boolean teleportAction;
     public SteamVR_Action_Boolean grabAction;
@@ -28,4 +29,5 @@ public class InputTest : MonoBehaviour {
             print("Grab " + myInput.handType);
         }
     }
+    */
 }
