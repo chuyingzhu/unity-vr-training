@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GrabAction:
-    actionPath: /actions/Touch/in/GrabGrip
+    actionPath: /actions/Touch/in/GrabPinch
     needsReinit: 0
   m_ContactInteractables: []
 --- !u!138 &599093897
@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GrabAction:
-    actionPath: /actions/Touch/in/GrabGrip
+    actionPath: /actions/Touch/in/GrabPinch
     needsReinit: 0
   m_ContactInteractables: []
 --- !u!138 &599193763
