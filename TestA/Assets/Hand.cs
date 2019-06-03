@@ -35,21 +35,22 @@ public class Hand : MonoBehaviour {
         }
     }
 
+    // Called when controller collides with an object
     private void OnTriggerEnter(Collider other) {
         // If object is not type "Interactable", simply ignore it
         if (!other.gameObject.CompareTag("Interactable")) {
             return;
         }
-
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
+        //other.gameObject.changeColor();
     } 
 
+    // Called when controller no longer collides with an object
     private void OnTriggerExit(Collider other) {
         // If object is not type "Interactable", simply ignore it
         if (!other.gameObject.CompareTag("Interactable")) {
             return;
         }
-
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
     }
 
