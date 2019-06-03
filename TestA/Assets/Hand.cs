@@ -42,7 +42,7 @@ public class Hand : MonoBehaviour {
             return;
         }
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
-        //other.gameObject.changeColor();
+        other.gameObject.GetComponent<ColorManager>().changeColor();
     } 
 
     // Called when controller no longer collides with an object

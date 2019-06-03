@@ -17,7 +17,10 @@ public class ColorManager : MonoBehaviour {
         m_Material.color = Color.green;
     }
 
-    void Update() {
-        m_Material.color = Color.green;
+    void OnDestroy() {
+        //Destroy the instance
+        Destroy(m_Material);
+        //Output the amount of materials to show if the instance was deleted
+        //print("Materials " + Resources.FindObjectsOfTypeAll(typeof(Material)).Length);
     }
 }
