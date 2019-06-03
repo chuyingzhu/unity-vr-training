@@ -13,8 +13,12 @@ public class ColorManager : MonoBehaviour {
         //rend.sharedMaterial = materials[0];
     }
 
-    public void changeColor() {
+    public void changeToGreen() {
         m_Material.color = Color.green;
+    }
+
+    public void changeToRed() {
+        m_Material.color = Color.red;
     }
 
     void OnDestroy() {

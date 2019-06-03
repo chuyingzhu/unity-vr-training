@@ -42,7 +42,7 @@ public class Hand : MonoBehaviour {
             return;
         }
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
-        other.gameObject.GetComponent<ColorManager>().changeColor();
+        other.gameObject.GetComponent<ColorManager>().changeToGreen();
     } 
 
     // Called when controller no longer collides with an object
@@ -52,6 +52,7 @@ public class Hand : MonoBehaviour {
             return;
         }
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
+        other.gameObject.GetComponent<ColorManager>().changeToRed();
     }
 
     public void Pickup() {
