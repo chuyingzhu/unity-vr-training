@@ -1,0 +1,20 @@
+<root>
+  <DeadZone Value="800" />
+  <DecSpeed Value="800" />
+  <yaw Value="315" />
+  <setback Value="70" />
+  <setfront Value="80" />
+  <single Value="300" />
+  <KalmanQ Value="0.001" />
+  <KalmanR Value="1.05" />
+  <LeftKalmanP Value="10" />
+  <LeftKalmanQ Value="0.03" />
+  <LeftKalmanR Value="0.55" />
+  <RightKalmanP Value="10" />
+  <RightKalmanQ Value="0.03" />
+  <RightKalmanR Value="0.55" />
+  <Speed Value="13" />
+  <Back Value="1" />
+  <Lateral Value="1" />
+  <CCS Value="0" />
+</root>
