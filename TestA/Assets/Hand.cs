@@ -88,6 +88,8 @@ public class Hand : MonoBehaviour {
         targetBody.angularVelocity = m_Pose.GetAngularVelocity();
         // Detach
         m_Joint.connectedBody = null;
+        // Change color
+        m_CurrentInteractable.GetComponent<ColorManager>().changeToRed();
         // Clear
         m_CurrentInteractable.m_ActiveHand = null;
         m_CurrentInteractable = null;
