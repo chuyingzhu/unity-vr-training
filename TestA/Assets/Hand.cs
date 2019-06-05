@@ -6,9 +6,12 @@ using Valve.VR;
 public class Hand : MonoBehaviour {
     // For pickup/drop objects
     public SteamVR_Action_Boolean m_GrabAction = null;
+    public SteamVR_Action_Boolean m_UseAction = null;
+
     // Added to L/R controller game objects
     private SteamVR_Behaviour_Pose m_Pose = null;
     private FixedJoint m_Joint = null;
+
     // Current object that the controller is holding
     private Interactable m_CurrentInteractable = null;
     // List of stuff that the controller is touching
@@ -24,13 +27,24 @@ public class Hand : MonoBehaviour {
         // Down
         if (m_GrabAction.GetStateDown(m_Pose.inputSource)) {
             // Input source is L or R controller
-            print(m_Pose.inputSource + " Trigger Down");
+            print(m_Pose.inputSource + " Grab Down");
+
+            if (m_CurrentInteractable != null) {
+                m_CurrentInteractable.Action();
+                return;
+            }
+
             Pickup();
         }
 
         // Up
+        /*
         if (m_GrabAction.GetStateUp(m_Pose.inputSource)) {
-            print(m_Pose.inputSource + " Trigger Up");
+            print(m_Pose.inputSource + " Grab Up");
+            Drop();
+        }*/
+        if (m_UseAction.GetStateDown(m_Pose.inputSource)) {
+            print(m_Pose.inputSource + " Use Down");
             Drop();
         }
     }
@@ -67,7 +81,8 @@ public class Hand : MonoBehaviour {
             m_CurrentInteractable.m_ActiveHand.Drop();
         }
         // Position
-        m_CurrentInteractable.transform.position = transform.position;
+        // m_CurrentInteractable.transform.position = transform.position;
+        m_CurrentInteractable.ApplyOffset(transform);
         // Attach
         Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
         m_Joint.connectedBody = targetBody;
@@ -88,6 +103,8 @@ public class Hand : MonoBehaviour {
         targetBody.angularVelocity = m_Pose.GetAngularVelocity();
         // Detach
         m_Joint.connectedBody = null;
+        // Change color
+        m_CurrentInteractable.GetComponent<ColorManager>().changeToRed();
         // Clear
         m_CurrentInteractable.m_ActiveHand = null;
         m_CurrentInteractable = null;
