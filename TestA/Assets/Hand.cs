@@ -56,7 +56,7 @@ public class Hand : MonoBehaviour {
             return;
         }
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
-        if (m_CurrentInteractable == null {
+        if (m_CurrentInteractable == null) {
             other.gameObject.GetComponent<ColorManager>().changeToGreen();
         }
     } 
