@@ -73,6 +73,8 @@ public class Hand : MonoBehaviour {
         m_Joint.connectedBody = targetBody;
         // Set active hand
         m_CurrentInteractable.m_ActiveHand = this;
+        // Change color
+        m_CurrentInteractable.GetComponent<ColorManager>().changeToBlue();
     }
 
     public void Drop() {

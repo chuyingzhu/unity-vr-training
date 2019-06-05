@@ -21,6 +21,10 @@ public class ColorManager : MonoBehaviour {
         m_Material.color = Color.red;
     }
 
+    public void changeToBlue() {
+        m_Material.color = Color.blue;
+    }
+
     void OnDestroy() {
         //Destroy the instance
         Destroy(m_Material);
