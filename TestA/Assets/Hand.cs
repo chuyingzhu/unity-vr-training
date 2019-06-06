@@ -17,6 +17,8 @@ public class Hand : MonoBehaviour {
     // List of stuff that the controller is touching
     public List<Interactable> m_ContactInteractables = new List<Interactable>();
 
+    public GameObject otherController = null;
+
     private void Awake() {
         m_Pose = GetComponent<SteamVR_Behaviour_Pose>();
         m_Joint = GetComponent<FixedJoint>();
@@ -59,8 +61,12 @@ public class Hand : MonoBehaviour {
             return;
         }
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
+        // If this controller is not holding anything
         if (m_CurrentInteractable == null) {
-            other.gameObject.GetComponent<ColorManager>().changeToGreen();
+            // If the other controller is hovering over the same target
+            if (otherController.GetComponent<Hand>().m_ContactInteractables.IndexOf(other.gameObject.GetComponent<Interactable>()) >= 0) {
+                other.gameObject.GetComponent<ColorManager>().changeToGreen();
+            }
         }
     } 
 
