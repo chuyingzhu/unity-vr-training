@@ -45,7 +45,10 @@ public class Hand : MonoBehaviour {
         }*/
         if (m_UseAction.GetStateDown(m_Pose.inputSource)) {
             print(m_Pose.inputSource + " Use Down");
-            m_CurrentInteractable.Action();
+            if (m_CurrentInteractable != null)
+            {
+                m_CurrentInteractable.Action();
+            }
         }
     }
 
