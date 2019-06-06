@@ -24,20 +24,20 @@ public class Hand : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
-        // Down
+        // If grab button is pressed
         if (m_GrabAction.GetStateDown(m_Pose.inputSource)) {
             // Input source is L or R controller
             print(m_Pose.inputSource + " Grab Down");
 
             if (m_CurrentInteractable != null) {
-                m_CurrentInteractable.Action();
+                Drop();
+                //m_CurrentInteractable.Action();
                 return;
             }
 
             Pickup();
         }
 
-        // Up
         /*
         if (m_GrabAction.GetStateUp(m_Pose.inputSource)) {
             print(m_Pose.inputSource + " Grab Up");
@@ -45,7 +45,7 @@ public class Hand : MonoBehaviour {
         }*/
         if (m_UseAction.GetStateDown(m_Pose.inputSource)) {
             print(m_Pose.inputSource + " Use Down");
-            Drop();
+            m_CurrentInteractable.Action();
         }
     }
 
