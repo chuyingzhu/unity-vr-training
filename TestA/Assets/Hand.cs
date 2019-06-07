@@ -82,7 +82,12 @@ public class Hand : MonoBehaviour {
             return;
         }
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
-        other.gameObject.GetComponent<ColorManager>().changeToRed();
+        if (other.gameObject.CompareTag("Interactable")) {
+            other.gameObject.GetComponent<ColorManager>().changeToRed();
+        }
+        else if (other.gameObject.CompareTag("Heavy")) {
+            other.gameObject.GetComponent<ColorManager>().changeToBlack();
+        }
     }
 
     public void Pickup() {
