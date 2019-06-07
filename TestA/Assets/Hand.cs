@@ -117,6 +117,7 @@ public class Hand : MonoBehaviour {
         m_Joint.connectedBody = targetBody;
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
             otherController.GetComponent<Hand>().enabled = false;
+            otherController.GetComponent<Renderer>().enabled = false;
         }
         // Set active hand
         m_CurrentInteractable.m_ActiveHand = this;
@@ -129,13 +130,14 @@ public class Hand : MonoBehaviour {
         if (!m_CurrentInteractable) {
             return;
         }
+        /*
         // Heavy obj check
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
             // If the other hand is not holding grip
             if (!otherController.GetComponent<Hand>().m_GrabAction.GetStateDown(otherController.GetComponent<Hand>().m_Pose.inputSource)) {
                 return;
             }
-        }
+        }*/
         // Apply velocity
         Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
         targetBody.velocity = m_Pose.GetVelocity();
@@ -144,6 +146,7 @@ public class Hand : MonoBehaviour {
         m_Joint.connectedBody = null;
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
             otherController.GetComponent<Hand>().enabled = true;
+            otherController.GetComponent<Renderer>().enabled = true;
         }
         // Change color
         m_CurrentInteractable.GetComponent<ColorManager>().changeToRed();
