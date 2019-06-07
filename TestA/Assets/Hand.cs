@@ -18,8 +18,6 @@ public class Hand : MonoBehaviour {
     public List<Interactable> m_ContactInteractables = new List<Interactable>();
 
     public GameObject otherController = null;
-    public bool isFollowObject = false;
-    public Transform followTarget = null;
 
     private void Awake() {
         m_Pose = GetComponent<SteamVR_Behaviour_Pose>();
@@ -47,10 +45,6 @@ public class Hand : MonoBehaviour {
             if (m_CurrentInteractable != null) {
                 m_CurrentInteractable.Action();
             }
-        }
-
-        if (isFollowObject) {
-            FollowObject(followTarget);
         }
     }
 
@@ -122,8 +116,7 @@ public class Hand : MonoBehaviour {
         Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
         m_Joint.connectedBody = targetBody;
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
-            otherController.GetComponent<Hand>().isFollowObject = true;
-            otherController.GetComponent<Hand>().followTarget = m_CurrentInteractable.gameObject.transform;
+            otherController.GetComponent<Hand>().enabled = false;
         }
         // Set active hand
         m_CurrentInteractable.m_ActiveHand = this;
@@ -150,8 +143,7 @@ public class Hand : MonoBehaviour {
         // Detach
         m_Joint.connectedBody = null;
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
-            otherController.GetComponent<Hand>().isFollowObject = true;
-            otherController.GetComponent<Hand>().followTarget = null;
+            otherController.GetComponent<Hand>().enabled = true;
         }
         // Change color
         m_CurrentInteractable.GetComponent<ColorManager>().changeToRed();
@@ -176,7 +168,4 @@ public class Hand : MonoBehaviour {
         return nearest;
     }
 
-    private void FollowObject(Transform target) {
-        transform.position = target.position;
-    }
 }
