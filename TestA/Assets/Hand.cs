@@ -47,8 +47,7 @@ public class Hand : MonoBehaviour {
         }*/
         if (m_UseAction.GetStateDown(m_Pose.inputSource)) {
             print(m_Pose.inputSource + " Use Down");
-            if (m_CurrentInteractable != null)
-            {
+            if (m_CurrentInteractable != null) {
                 m_CurrentInteractable.Action();
             }
         }
@@ -56,24 +55,30 @@ public class Hand : MonoBehaviour {
 
     // Called when controller collides with an object
     private void OnTriggerEnter(Collider other) {
-        // If object is not type "Interactable", simply ignore it
-        if (!other.gameObject.CompareTag("Interactable")) {
+        // If object is not type "Interactable" or "Heavy", simply ignore it
+        if (!other.gameObject.CompareTag("Interactable") || !other.gameObject.CompareTag("Heavy")) {
             return;
         }
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
         // If this controller is not holding anything
         if (m_CurrentInteractable == null) {
-            // If the other controller is hovering over the same target
-            if (otherController.GetComponent<Hand>().m_ContactInteractables.IndexOf(other.gameObject.GetComponent<Interactable>()) >= 0) {
+            // One addition check if obj is heavy
+            if (other.gameObject.CompareTag("Heavy")) {
+                // If the other controller is hovering over the same target
+                if (otherController.GetComponent<Hand>().m_ContactInteractables.IndexOf(other.gameObject.GetComponent<Interactable>()) >= 0) {
+                    other.gameObject.GetComponent<ColorManager>().changeToGreen();
+                }
+            }
+            else if (other.gameObject.CompareTag("Interactable")) {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
             }
         }
-    } 
+    }
 
     // Called when controller no longer collides with an object
     private void OnTriggerExit(Collider other) {
         // If object is not type "Interactable", simply ignore it
-        if (!other.gameObject.CompareTag("Interactable")) {
+        if (!other.gameObject.CompareTag("Interactable") || !other.gameObject.CompareTag("Heavy")) {
             return;
         }
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
