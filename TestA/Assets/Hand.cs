@@ -19,6 +19,16 @@ public class Hand : MonoBehaviour {
 
     public GameObject otherController = null;
 
+    // How much touchpad value affects speed (-1 to 1)
+    public float m_Sensitivity = 0.1f;
+    public float m_MaxSpeed = 1.0f;
+    public SteamVR_Action_Boolean m_MovePress = null;
+    public SteamVR_Action_Vector2 m_MoveValue = null;
+    public Transform m_CameraRigTransform = null;
+    public Camera m_Camera = null;
+
+    private float m_Speed = 0.0f;
+
     private void Awake() {
         m_Pose = GetComponent<SteamVR_Behaviour_Pose>();
         m_Joint = GetComponent<FixedJoint>();
@@ -26,6 +36,7 @@ public class Hand : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
+        CalculateMovement();
         // If grab button is pressed
         if (m_GrabAction.GetStateDown(m_Pose.inputSource)) {
             if (m_CurrentInteractable != null) {
@@ -169,4 +180,24 @@ public class Hand : MonoBehaviour {
         return nearest;
     }
 
+    private void CalculateMovement() {
+        // Figure out movement orientation
+        Vector3 orientationEuler = new Vector3(0, m_Camera.transform.eulerAngles.y, 0);
+        Quaternion orientation = Quaternion.Euler(orientationEuler);
+        Vector3 movement = Vector3.zero;
+        // If not moving, stop immediately
+        if (m_MovePress.GetStateUp(SteamVR_Input_Sources.Any)) {
+            m_Speed = 0;
+        }
+        // If button pressed
+        if (m_MovePress.state) {
+            // Add, clamp
+            m_Speed += m_MoveValue.axis.y * m_Sensitivity;
+            m_Speed = Mathf.Clamp(m_Speed, -m_MaxSpeed, m_MaxSpeed);
+            // Orientation
+            movement += orientation * (m_Speed * Vector3.forward) * Time.deltaTime;
+        }
+        // Apply
+        m_CameraRigTransform.Translate(movement);
+    }
 }
