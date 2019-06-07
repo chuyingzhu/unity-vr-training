@@ -116,8 +116,7 @@ public class Hand : MonoBehaviour {
         Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
         m_Joint.connectedBody = targetBody;
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
-            otherController.GetComponent<Hand>().enabled = false;
-            otherController.GetComponent<Renderer>().enabled = false;
+            otherController.GetComponent<Hand>().m_Pose.enabled = false;
         }
         // Set active hand
         m_CurrentInteractable.m_ActiveHand = this;
@@ -145,8 +144,7 @@ public class Hand : MonoBehaviour {
         // Detach
         m_Joint.connectedBody = null;
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
-            otherController.GetComponent<Hand>().enabled = true;
-            otherController.GetComponent<Renderer>().enabled = true;
+            otherController.GetComponent<Hand>().m_Pose.enabled = true;
         }
         // Change color
         m_CurrentInteractable.GetComponent<ColorManager>().changeToRed();
