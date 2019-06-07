@@ -111,6 +111,7 @@ public class Hand : MonoBehaviour {
         // Already held, check
         if (m_CurrentInteractable.m_ActiveHand) {
             m_CurrentInteractable.m_ActiveHand.Drop();
+            m_CurrentInteractable.GetComponent<ColorManager>().changeToBlue();
         }   
         // Position
         // m_CurrentInteractable.transform.position = transform.position;
