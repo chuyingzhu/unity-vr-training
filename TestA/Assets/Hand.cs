@@ -13,7 +13,7 @@ public class Hand : MonoBehaviour {
     private FixedJoint m_Joint = null;
 
     // Current object that the controller is holding
-    private Interactable m_CurrentInteractable = null;
+    public Interactable m_CurrentInteractable = null;
     // List of stuff that the controller is touching
     public List<Interactable> m_ContactInteractables = new List<Interactable>();
 
@@ -64,8 +64,9 @@ public class Hand : MonoBehaviour {
             return;
         }
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
-        // If this controller is not holding anything
-        if (m_CurrentInteractable == null) {
+        // Manage color
+        // If both hands empty
+        if (m_CurrentInteractable == null && otherController.GetComponent<Hand>().m_CurrentInteractable == null) {
             // One addition check if obj is heavy
             if (other.gameObject.CompareTag("Heavy")) {
                 // If the other controller is hovering over the same target
@@ -86,11 +87,15 @@ public class Hand : MonoBehaviour {
             return;
         }
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
-        if (other.gameObject.CompareTag("Interactable")) {
-            other.gameObject.GetComponent<ColorManager>().changeToRed();
-        }
-        else if (other.gameObject.CompareTag("Heavy")) {
-            other.gameObject.GetComponent<ColorManager>().changeToBlack();
+        // Manage color
+        // If both hands empty
+        if (m_CurrentInteractable == null && otherController.GetComponent<Hand>().m_CurrentInteractable == null) {
+            if (other.gameObject.CompareTag("Interactable")) {
+                other.gameObject.GetComponent<ColorManager>().changeToRed();
+            }
+            else if (other.gameObject.CompareTag("Heavy")) {
+                other.gameObject.GetComponent<ColorManager>().changeToBlack();
+            }
         }
     }
 
