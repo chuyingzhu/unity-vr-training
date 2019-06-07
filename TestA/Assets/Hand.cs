@@ -72,8 +72,8 @@ public class Hand : MonoBehaviour {
             }
         }
         else if (other.gameObject.CompareTag("Interactable")) {
-            // If both hands empty
-            if (m_CurrentInteractable == null && otherController.GetComponent<Hand>().m_CurrentInteractable == null) {
+            // As long as the other hand is not holding the same target, change to green
+            if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
             }
         }
@@ -88,12 +88,13 @@ public class Hand : MonoBehaviour {
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
         // Manage color
         // If both hands empty
-        if (m_CurrentInteractable == null && otherController.GetComponent<Hand>().m_CurrentInteractable == null) {
-            if (other.gameObject.CompareTag("Interactable")) {
+        if (other.gameObject.CompareTag("Heavy")) {
+            other.gameObject.GetComponent<ColorManager>().changeToBlack();
+        }
+        else if (other.gameObject.CompareTag("Interactable")) {
+            // As long as the other hand is not holding the same target, change to green
+            if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
                 other.gameObject.GetComponent<ColorManager>().changeToRed();
-            }
-            else if (other.gameObject.CompareTag("Heavy")) {
-                other.gameObject.GetComponent<ColorManager>().changeToBlack();
             }
         }
     }
