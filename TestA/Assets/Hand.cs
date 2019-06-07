@@ -18,26 +18,30 @@ public class Hand : MonoBehaviour {
     public List<Interactable> m_ContactInteractables = new List<Interactable>();
 
     public GameObject otherController = null;
+    public FixedJoint m_otherJoint = null;
+    public bool isGrabDown = false;
 
     private void Awake() {
         m_Pose = GetComponent<SteamVR_Behaviour_Pose>();
         m_Joint = GetComponent<FixedJoint>();
+        m_otherJoint = otherController.GetComponent<FixedJoint>();
     }
 
     // Update is called once per frame
     private void Update() {
         // If grab button is pressed
         if (m_GrabAction.GetStateDown(m_Pose.inputSource)) {
-            // Input source is L or R controller
-            print(m_Pose.inputSource + " Grab Down");
+            isGrabDown = true;
 
             if (m_CurrentInteractable != null) {
                 Drop();
-                //m_CurrentInteractable.Action();
                 return;
             }
 
             Pickup();
+        }
+        else {
+            isGrabDown = false;
         }
 
         /*
@@ -107,13 +111,16 @@ public class Hand : MonoBehaviour {
         // Already held, check
         if (m_CurrentInteractable.m_ActiveHand) {
             m_CurrentInteractable.m_ActiveHand.Drop();
-        }
+        }   
         // Position
         // m_CurrentInteractable.transform.position = transform.position;
         m_CurrentInteractable.ApplyOffset(transform);
         // Attach
         Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
         m_Joint.connectedBody = targetBody;
+        if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
+            m_otherJoint.connectedBody = targetBody;
+        }
         // Set active hand
         m_CurrentInteractable.m_ActiveHand = this;
         // Change color
@@ -125,12 +132,22 @@ public class Hand : MonoBehaviour {
         if (!m_CurrentInteractable) {
             return;
         }
+        // Heavy obj check
+        if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
+            // If the other hand is not holding grip
+            if (!otherController.GetComponent<Hand>().isGrabDown) {
+                return;
+            }
+        }
         // Apply velocity
         Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
         targetBody.velocity = m_Pose.GetVelocity();
         targetBody.angularVelocity = m_Pose.GetAngularVelocity();
         // Detach
         m_Joint.connectedBody = null;
+        if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
+            m_otherJoint.connectedBody = null;
+        }
         // Change color
         m_CurrentInteractable.GetComponent<ColorManager>().changeToRed();
         // Clear
