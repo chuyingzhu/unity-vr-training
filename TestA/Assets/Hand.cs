@@ -9,7 +9,7 @@ public class Hand : MonoBehaviour {
     public SteamVR_Action_Boolean m_UseAction = null;
 
     // Added to L/R controller game objects
-    private SteamVR_Behaviour_Pose m_Pose = null;
+    public SteamVR_Behaviour_Pose m_Pose = null;
     private FixedJoint m_Joint = null;
 
     // Current object that the controller is holding
@@ -18,30 +18,23 @@ public class Hand : MonoBehaviour {
     public List<Interactable> m_ContactInteractables = new List<Interactable>();
 
     public GameObject otherController = null;
-    public FixedJoint m_otherJoint = null;
-    public bool isGrabDown = false;
+    public bool isFollowObject = false;
+    public Transform followTarget = null;
 
     private void Awake() {
         m_Pose = GetComponent<SteamVR_Behaviour_Pose>();
         m_Joint = GetComponent<FixedJoint>();
-        m_otherJoint = otherController.GetComponent<FixedJoint>();
     }
 
     // Update is called once per frame
     private void Update() {
         // If grab button is pressed
         if (m_GrabAction.GetStateDown(m_Pose.inputSource)) {
-            isGrabDown = true;
-
             if (m_CurrentInteractable != null) {
                 Drop();
                 return;
             }
-
             Pickup();
-        }
-        else {
-            isGrabDown = false;
         }
 
         /*
@@ -54,6 +47,10 @@ public class Hand : MonoBehaviour {
             if (m_CurrentInteractable != null) {
                 m_CurrentInteractable.Action();
             }
+        }
+
+        if (isFollowObject) {
+            FollowObject(followTarget);
         }
     }
 
@@ -114,10 +111,10 @@ public class Hand : MonoBehaviour {
             }
         }
         // Already held, check
-        if (m_CurrentInteractable.m_ActiveHand) {
+        if (m_CurrentInteractable.m_ActiveHand && m_CurrentInteractable.gameObject.CompareTag("Interactable")) {
             m_CurrentInteractable.m_ActiveHand.Drop();
             m_CurrentInteractable.GetComponent<ColorManager>().changeToBlue();
-        }   
+        }
         // Position
         // m_CurrentInteractable.transform.position = transform.position;
         m_CurrentInteractable.ApplyOffset(transform);
@@ -125,7 +122,8 @@ public class Hand : MonoBehaviour {
         Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
         m_Joint.connectedBody = targetBody;
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
-            m_otherJoint.connectedBody = targetBody;
+            otherController.GetComponent<Hand>().isFollowObject = true;
+            otherController.GetComponent<Hand>().followTarget = m_CurrentInteractable.gameObject.transform;
         }
         // Set active hand
         m_CurrentInteractable.m_ActiveHand = this;
@@ -141,7 +139,7 @@ public class Hand : MonoBehaviour {
         // Heavy obj check
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
             // If the other hand is not holding grip
-            if (!otherController.GetComponent<Hand>().isGrabDown) {
+            if (!otherController.GetComponent<Hand>().m_GrabAction.GetStateDown(otherController.GetComponent<Hand>().m_Pose.inputSource)) {
                 return;
             }
         }
@@ -152,7 +150,8 @@ public class Hand : MonoBehaviour {
         // Detach
         m_Joint.connectedBody = null;
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
-            m_otherJoint.connectedBody = null;
+            otherController.GetComponent<Hand>().isFollowObject = true;
+            otherController.GetComponent<Hand>().followTarget = null;
         }
         // Change color
         m_CurrentInteractable.GetComponent<ColorManager>().changeToRed();
@@ -175,5 +174,9 @@ public class Hand : MonoBehaviour {
         }
 
         return nearest;
+    }
+
+    private void FollowObject(Transform target) {
+        transform.position = target.position;
     }
 }
