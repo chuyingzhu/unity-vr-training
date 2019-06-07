@@ -65,16 +65,15 @@ public class Hand : MonoBehaviour {
         }
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
         // Manage color
-        // If both hands empty
-        if (m_CurrentInteractable == null && otherController.GetComponent<Hand>().m_CurrentInteractable == null) {
-            // One addition check if obj is heavy
-            if (other.gameObject.CompareTag("Heavy")) {
-                // If the other controller is hovering over the same target
-                if (otherController.GetComponent<Hand>().m_ContactInteractables.IndexOf(other.gameObject.GetComponent<Interactable>()) >= 0) {
-                    other.gameObject.GetComponent<ColorManager>().changeToGreen();
-                }
+        if (other.gameObject.CompareTag("Heavy")) {
+            // If the other controller is hovering over the same target
+            if (otherController.GetComponent<Hand>().m_ContactInteractables.IndexOf(other.gameObject.GetComponent<Interactable>()) >= 0) {
+                other.gameObject.GetComponent<ColorManager>().changeToGreen();
             }
-            else if (other.gameObject.CompareTag("Interactable")) {
+        }
+        else if (other.gameObject.CompareTag("Interactable")) {
+            // If both hands empty
+            if (m_CurrentInteractable == null && otherController.GetComponent<Hand>().m_CurrentInteractable == null) {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
             }
         }
