@@ -1,4 +1,5 @@
 Simple test project to make sure VR settings are functional.
 Included features:
-- teleporting (needs improvement)
+- teleporting
+- locomotion
 - grabbing/throwing objects
