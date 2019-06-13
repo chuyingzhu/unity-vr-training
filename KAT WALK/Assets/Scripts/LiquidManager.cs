@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LiquidManager : MonoBehaviour {
-    Material m_Material;
+    MeshRenderer meshRenderer;
 
     // Start is called before the first frame update
     void Start() {
-        m_Material = GetComponent<Renderer>().material;
-        m_Material.shader._FillAmount = 0;
+        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer.material.SetFloat("_FillAmount", 0.2f);
     }
 
     // Update is called once per frame
