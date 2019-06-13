@@ -62,7 +62,7 @@ public class Hand : MonoBehaviour {
     // Called when controller collides with an object
     private void OnTriggerEnter(Collider other) {
         // If object is neither type "Interactable" or "Heavy", simply ignore it
-        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy")) {
+        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask")) {
             return;
         }
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
@@ -84,7 +84,7 @@ public class Hand : MonoBehaviour {
     // Called when controller no longer collides with an object
     private void OnTriggerExit(Collider other) {
         // If object is neither type "Interactable" or "Heavy", simply ignore it
-        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy")) {
+        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask")) {
             return;
         }
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
@@ -158,7 +158,7 @@ public class Hand : MonoBehaviour {
             otherController.GetComponent<Hand>().m_Pose.enabled = true;
         }
         // Change color
-        m_CurrentInteractable.GetComponent<ColorManager>().changeToRed();
+        // m_CurrentInteractable.GetComponent<ColorManager>().changeToRed();
         // Clear
         m_CurrentInteractable.m_ActiveHand = null;
         m_CurrentInteractable = null;

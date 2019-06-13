@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Interactable
   - Heavy
+  - Flask
   layers:
   - Default
   - TransparentFX
