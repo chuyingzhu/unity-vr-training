@@ -8,11 +8,10 @@ public class LiquidManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         meshRenderer = GetComponent<MeshRenderer>();
-        meshRenderer.material.SetFloat("_FillAmount", 0.2f);
+        meshRenderer.material.SetFloat("_FillAmount", 0.4f);
     }
 
-    // Update is called once per frame
-    void Update() {
-        
+    public void FillContainer() {
+        meshRenderer.material.SetFloat("_FillAmount", 0.5f);
     }
 }

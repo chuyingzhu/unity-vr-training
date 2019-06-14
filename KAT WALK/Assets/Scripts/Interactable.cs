@@ -12,7 +12,9 @@ public class Interactable : MonoBehaviour {
 
     // Virtual to fit different needs (eg. gun vs grenade)
     public virtual void Action() {
-        print("Action");
+        if (gameObject.CompareTag("Flask")) {
+            print("Action");
+        }
     }
 
     public void ApplyOffset(Transform hand) {
