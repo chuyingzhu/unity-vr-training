@@ -132,7 +132,9 @@ public class Hand : MonoBehaviour {
         // Set active hand
         m_CurrentInteractable.m_ActiveHand = this;
         // Change color
-        m_CurrentInteractable.GetComponent<ColorManager>().changeToBlue();
+        if (!m_CurrentInteractable.gameObject.CompareTag("Flask")) {
+            m_CurrentInteractable.GetComponent<ColorManager>().changeToBlue();
+        }
     }
 
     public void Drop() {

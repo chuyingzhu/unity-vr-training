@@ -13,7 +13,7 @@ public class Interactable : MonoBehaviour {
     // Virtual to fit different needs (eg. gun vs grenade)
     public virtual void Action() {
         if (gameObject.CompareTag("Flask")) {
-            print("Action");
+            transform.GetChild(0).gameObject.GetComponent<LiquidManager>().FillContainer();
         }
     }
 
