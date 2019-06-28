@@ -12,7 +12,7 @@ namespace VRKeys {
 		/// Show the keyboard with a custom input message. Attaching events dynamically,
 		/// but you can also use the inspector.
 		/// </summary>
-		private void OnEnable () {
+		private void OnEnable() {
 			// Automatically creating camera here to show how
 			//GameObject camera = new GameObject ("Main Camera");
 			//Camera cam = camera.AddComponent<Camera> ();
@@ -24,7 +24,7 @@ namespace VRKeys {
 			canvas.worldCamera = cam;
 
 			keyboard.Enable ();
-			keyboard.SetPlaceholderMessage ("Please enter your email address");
+			keyboard.SetPlaceholderMessage ("Please enter your username");
 
 			keyboard.OnUpdate.AddListener (HandleUpdate);
 			keyboard.OnSubmit.AddListener (HandleSubmit);
@@ -96,7 +96,10 @@ namespace VRKeys {
 		}*/
 
 		private bool ValidateInput (string text) {
-			return true;
+			if (text.Equals("azhu")) {
+				return true;
+			}
+			return false;
 		}
 	}
 }
