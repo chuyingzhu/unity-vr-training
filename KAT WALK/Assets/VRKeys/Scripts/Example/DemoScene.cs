@@ -8,10 +8,8 @@ namespace VRKeys {
 		public Keyboard keyboard;
 		public Camera cam;
 
-		/// <summary>
-		/// Show the keyboard with a custom input message. Attaching events dynamically,
-		/// but you can also use the inspector.
-		/// </summary>
+		// Show the keyboard with a custom input message. Attaching events dynamically,
+		// but you can also use the inspector.
 		private void OnEnable() {
 			// Automatically creating camera here to show how
 			//GameObject camera = new GameObject ("Main Camera");
@@ -20,31 +18,27 @@ namespace VRKeys {
 			//camera.AddComponent<AudioListener> ();
 
 			// Improves event system performance
-			Canvas canvas = keyboard.canvas.GetComponent<Canvas> ();
+			Canvas canvas = keyboard.canvas.GetComponent<Canvas>();
 			canvas.worldCamera = cam;
 
-			keyboard.Enable ();
-			keyboard.SetPlaceholderMessage ("Please enter your username");
+			keyboard.Enable();
+			keyboard.SetPlaceholderMessage("Please enter your username");
 
-			keyboard.OnUpdate.AddListener (HandleUpdate);
-			keyboard.OnSubmit.AddListener (HandleSubmit);
-			keyboard.OnCancel.AddListener (HandleCancel);
+			keyboard.OnUpdate.AddListener(HandleUpdate);
+			keyboard.OnSubmit.AddListener(HandleSubmit);
+			//keyboard.OnCancel.AddListener(HandleCancel);
 		}
 
-		private void OnDisable () {
-			keyboard.OnUpdate.RemoveListener (HandleUpdate);
-			keyboard.OnSubmit.RemoveListener (HandleSubmit);
-			keyboard.OnCancel.RemoveListener (HandleCancel);
+		private void OnDisable() {
+			keyboard.OnUpdate.RemoveListener(HandleUpdate);
+			keyboard.OnSubmit.RemoveListener(HandleSubmit);
+			//keyboard.OnCancel.RemoveListener(HandleCancel);
 
 			keyboard.Disable ();
 		}
 
-		/// <summary>
-		/// Press space to show/hide the keyboard.
-		///
-		/// Press Q for Qwerty keyboard, D for Dvorak keyboard, and F for French keyboard.
-		/// </summary>
-		private void Update () {
+		// Press space to show/hide the keyboard.
+		private void Update() {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				if (keyboard.disabled) {
 					keyboard.Enable ();
@@ -54,28 +48,24 @@ namespace VRKeys {
 			}
 		}
 
-		/// <summary>
-		/// Hide the validation message on update. Connect this to OnUpdate.
-		/// </summary>
-		public void HandleUpdate (string text) {
-			keyboard.HideValidationMessage ();
+		// Hide the validation message on update. Connect this to OnUpdate.
+		public void HandleUpdate(string text) {
+			keyboard.HideValidationMessage();
 		}
 
-		/// <summary>
-		/// Validate the email and simulate a form submission. Connect this to OnSubmit.
-		/// </summary>
-		public void HandleSubmit (string text) {
-			keyboard.DisableInput ();
+		// Validate the input and simulate a form submission. Connect this to OnSubmit.
+		public void HandleSubmit(string text) {
+			keyboard.DisableInput();
 
-			if (!ValidateInput (text)) {
-				keyboard.ShowValidationMessage ("Please enter a valid input");
+			if (!ValidateInput(text)) {
+				keyboard.ShowValidationMessage("Please enter a valid input");
 				keyboard.EnableInput ();
 				return;
 			}
 		}
 
-		public void HandleCancel () {
-			Debug.Log ("Cancelled keyboard input!");
+		public void HandleCancel() {
+			Debug.Log("Cancelled keyboard input!");
 		}
 /* 
 		/// <summary>
@@ -95,7 +85,7 @@ namespace VRKeys {
 			keyboard.EnableInput ();
 		}*/
 
-		private bool ValidateInput (string text) {
+		private bool ValidateInput(string text) {
 			if (text.Equals("azhu")) {
 				return true;
 			}
