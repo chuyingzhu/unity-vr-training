@@ -58,7 +58,8 @@ namespace VRKeys {
 			keyboard.DisableInput();
 
 			if (!ValidateInput(text)) {
-				keyboard.ShowValidationMessage("Please enter a valid input");
+				keyboard.ShowValidationMessage("Please enter a valid username");
+				keyboard.SetPlaceholderMessage("");
 				keyboard.EnableInput ();
 				return;
 			}
