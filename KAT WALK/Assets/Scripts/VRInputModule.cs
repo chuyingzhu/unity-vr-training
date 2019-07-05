@@ -52,6 +52,9 @@ public class VRInputModule : BaseInputModule {
         if (newPointerPress == null) {
             newPointerPress = ExecuteEvents.GetEventHandler<IPointerClickHandler>(m_CurrentObject);
         }
+        else { //!!!
+            //print(newPointerPress.transform.GetChild(0).gameObject.GetComponent<Text>().Text);
+        }
         // Set data
         data.pressPosition = data.position;
         data.pointerPress = newPointerPress;
