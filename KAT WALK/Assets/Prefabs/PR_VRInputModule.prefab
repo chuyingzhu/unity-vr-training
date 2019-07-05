@@ -59,3 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d22fadc2590499aaa7d6751db97f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
+  m_TargetSource: 2
+  m_ClickAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
