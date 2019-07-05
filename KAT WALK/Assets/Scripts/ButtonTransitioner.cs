@@ -12,6 +12,7 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
     public Text question;
     public Text status;
     public bool isCorrect;
+    public GameObject m_MCManager;
 
     private Image m_Image = null;
 
@@ -49,9 +50,11 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
         m_Image.color = m_HoverColor;
         if (isCorrect) {
             status.text = "Correct!";
+            m_MCManager.GetComponent<MCManager>().nextQuestion();
         }
         else {
             status.text = "Incorrect.";
+            m_MCManager.GetComponent<MCManager>().tryAgain();
         }
     }
 }
