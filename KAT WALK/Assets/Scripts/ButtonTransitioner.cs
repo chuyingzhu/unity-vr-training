@@ -8,9 +8,6 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
     public Color32 m_NormalColor = Color.white;
     public Color32 m_HoverColor = Color.grey;
     public Color32 m_DownColor = Color.white;
-    public Text buttonText;
-    public Text question;
-    public Text status;
     public bool isCorrect;
     public GameObject m_MCManager;
 
@@ -37,24 +34,22 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
     }
 
     public void OnPointerDown(PointerEventData eventData) {
-        print("Down");
+        //print("Down");
         m_Image.color = m_DownColor;
     }
 
     public void OnPointerUp(PointerEventData eventData) {
-        print("Up");
+        //print("Up");
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        print("Click");
+        //print("Click");
         m_Image.color = m_HoverColor;
         if (isCorrect) {
-            status.text = "Correct!";
-            m_MCManager.GetComponent<MCManager>().nextQuestion();
+            m_MCManager.GetComponent<MCManager>().rightAnswer();
         }
         else {
-            status.text = "Incorrect.";
-            m_MCManager.GetComponent<MCManager>().tryAgain();
+            m_MCManager.GetComponent<MCManager>().wrongAnswer();
         }
     }
 }
