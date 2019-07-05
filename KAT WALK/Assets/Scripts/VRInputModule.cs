@@ -52,9 +52,6 @@ public class VRInputModule : BaseInputModule {
         if (newPointerPress == null) {
             newPointerPress = ExecuteEvents.GetEventHandler<IPointerClickHandler>(m_CurrentObject);
         }
-        else { //!!!
-            //print(newPointerPress.transform.GetChild(0).gameObject.GetComponent<Text>().Text);
-        }
         // Set data
         data.pressPosition = data.position;
         data.pointerPress = newPointerPress;
@@ -66,7 +63,7 @@ public class VRInputModule : BaseInputModule {
         ExecuteEvents.Execute(data.pointerPress, data, ExecuteEvents.pointerUpHandler);
         // Check for click handler
         GameObject pointerUpHandler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(m_CurrentObject);
-        // Check if actual
+        // Check if object is the same as the one pressed earlier
         if (data.pointerPress == pointerUpHandler) {
             ExecuteEvents.Execute(data.pointerPress, data, ExecuteEvents.pointerClickHandler);
         }

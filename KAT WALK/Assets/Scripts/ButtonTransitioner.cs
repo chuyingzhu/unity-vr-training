@@ -8,6 +8,10 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
     public Color32 m_NormalColor = Color.white;
     public Color32 m_HoverColor = Color.grey;
     public Color32 m_DownColor = Color.white;
+    public Text buttonText;
+    public Text question;
+    public Text status;
+    public bool isCorrect;
 
     private Image m_Image = null;
 
@@ -37,5 +41,11 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void OnPointerClick(PointerEventData eventData) {
         print("Click");
         m_Image.color = m_HoverColor;
+        if (isCorrect) {
+            status.text = "Correct!";
+        }
+        else {
+            status.text = "Incorrect.";
+        }
     }
 }
