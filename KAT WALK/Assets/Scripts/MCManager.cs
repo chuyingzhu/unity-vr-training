@@ -57,10 +57,12 @@ public class MCManager : MonoBehaviour {
         // Assign question
         questionText.text = questions[questionNumber];
         // Assign choices
-        for (int i=0; i<3; i++) {
+        for (int i=0; i<4; i++) {
             MCButtons[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = choices[questionNumber, i];
             // Assign which choices are correct/wrong
-            MCButtons[i].GetComponent<ButtonTransitioner>().isCorrect = (i==answers[questionNumber]);
+            bool isCorrect = (i==answers[questionNumber]);
+            MCButtons[i].GetComponent<ButtonTransitioner>().isCorrect = isCorrect;
+            MCButtons[i].GetComponent<ButtonTransitioner>().m_DownColor = isCorrect ? Color.green : Color.red;
         }
         questionNumber++;
     }
