@@ -17,6 +17,12 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private void Awake() {
         m_Image = GetComponent<Image>();
+        if (isCorrect) {
+            m_DownColor = Color.green;
+        }
+        else {
+            m_DownColor = Color.red;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
