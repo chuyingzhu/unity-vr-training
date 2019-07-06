@@ -22,17 +22,19 @@ public class MCManager : MonoBehaviour {
         nextQuestion();
     }
 
+    // When user picks the right answer, display status
     public void rightAnswer() {
         status.text = "Correct!";
-        buttonText.text = "Next Question";
+        buttonText.text = "Keep Going";
         //continueButton.GetComponent<Renderer>().enabled = true;
         continueButton.enabled = true;
         disableMCButtons();
     }
 
+    // When user picks the wrong answer, display status
     public void wrongAnswer() {
         status.text = "Incorrect!";
-        buttonText.text = "Next Question";
+        buttonText.text = "Try Again";
         //continueButton.GetComponent<Renderer>().enabled = true;
         continueButton.enabled = true;
         disableMCButtons();
@@ -50,8 +52,9 @@ public class MCManager : MonoBehaviour {
         }
     }
 
+    // Change the question, choices, and answers
     public void nextQuestion() {
-        if (questionNumber > questions.Length) {
+        if (questionNumber >= questions.Length) {
             return;
         }
         // Assign question
@@ -65,5 +68,6 @@ public class MCManager : MonoBehaviour {
             MCButtons[i].GetComponent<ButtonTransitioner>().m_DownColor = isCorrect ? Color.green : Color.red;
         }
         questionNumber++;
+        status.text = "";
     }
 }
