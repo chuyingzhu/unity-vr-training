@@ -25,7 +25,7 @@ public class MCManager : MonoBehaviour {
     // When user picks the right answer, display status
     public void rightAnswer() {
         status.text = "Correct!";
-        buttonText.text = "Keep Going";
+        buttonText.text = "Continue";
         //continueButton.GetComponent<Renderer>().enabled = true;
         continueButton.enabled = true;
         disableMCButtons();
@@ -34,7 +34,7 @@ public class MCManager : MonoBehaviour {
     // When user picks the wrong answer, display status
     public void wrongAnswer() {
         status.text = "Incorrect!";
-        buttonText.text = "Try Again";
+        buttonText.text = "Continue";
         //continueButton.GetComponent<Renderer>().enabled = true;
         continueButton.enabled = true;
         disableMCButtons();
