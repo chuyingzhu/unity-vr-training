@@ -85,7 +85,6 @@ public class MCManager : MonoBehaviour {
     private void ShowResults() {
         Hide(continueCanvasGroup);
         Hide(MCCanvasGroup);
-        Text m_Text = transform.parent.gameObject.AddComponent<Text>();
-        m_Text.text = "Your score is " + correct + " / " + questions.Length + ".";
+        status.text = "Your score is " + correct + " / " + questions.Length + ".";
     }
 }
