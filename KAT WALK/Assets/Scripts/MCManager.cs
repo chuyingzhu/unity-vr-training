@@ -8,6 +8,7 @@ public class MCManager : MonoBehaviour {
     public List<Button> MCButtons;
     public Text questionText;
     public Text status;
+    public CanvasGroup m_CanvasGroup;
 
     private Text buttonText;
     private string[] questions = new string[3] {"1. What is 1+1?", "2. What is 9*8?", "3. What is 12^2?"};
@@ -17,7 +18,6 @@ public class MCManager : MonoBehaviour {
 
     private void Awake() {
         //continueButton.GetComponent<Renderer>().enabled = false;
-        continueButton.enabled = false;
         buttonText = continueButton.transform.GetChild(0).gameObject.GetComponent<Text>();
         nextQuestion();
     }
@@ -27,7 +27,8 @@ public class MCManager : MonoBehaviour {
         status.text = "Correct!";
         buttonText.text = "Continue";
         //continueButton.GetComponent<Renderer>().enabled = true;
-        continueButton.enabled = true;
+        //continueButton.enabled = true;
+        Show();
         disableMCButtons();
     }
 
@@ -36,7 +37,8 @@ public class MCManager : MonoBehaviour {
         status.text = "Incorrect!";
         buttonText.text = "Continue";
         //continueButton.GetComponent<Renderer>().enabled = true;
-        continueButton.enabled = true;
+        //continueButton.enabled = true;
+        Show();
         disableMCButtons();
     }
 
@@ -69,5 +71,17 @@ public class MCManager : MonoBehaviour {
         }
         questionNumber++;
         status.text = "";
+        //continueButton.enabled = false;
+        Hide();
+    }
+
+    public void Hide() {
+        m_CanvasGroup.alpha = 0f; //this makes everything transparent
+        m_CanvasGroup.blocksRaycasts = false; //this prevents the UI element to receive input events
+    }
+
+    public void Show() {
+        m_CanvasGroup.alpha = 1f;
+        m_CanvasGroup.blocksRaycasts = true;
     }
 }
