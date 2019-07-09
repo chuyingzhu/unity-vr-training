@@ -8,7 +8,7 @@ public class MCManager : MonoBehaviour {
     public List<Button> MCButtons;
     public Text questionText;
     public Text status;
-    public CanvasGroup m_CanvasGroup;
+    public CanvasGroup continueCanvasGroup;
 
     private Text buttonText;
     private string[] questions = new string[3] {"1. What is 1+1?", "2. What is 9*8?", "3. What is 12^2?"};
@@ -17,7 +17,6 @@ public class MCManager : MonoBehaviour {
     private int questionNumber = 0;
 
     private void Awake() {
-        //continueButton.GetComponent<Renderer>().enabled = false;
         buttonText = continueButton.transform.GetChild(0).gameObject.GetComponent<Text>();
         nextQuestion();
     }
@@ -26,9 +25,7 @@ public class MCManager : MonoBehaviour {
     public void rightAnswer() {
         status.text = "Correct!";
         buttonText.text = "Continue";
-        //continueButton.GetComponent<Renderer>().enabled = true;
-        //continueButton.enabled = true;
-        Show();
+        Show(continueCanvasGroup);
         disableMCButtons();
     }
 
@@ -36,21 +33,16 @@ public class MCManager : MonoBehaviour {
     public void wrongAnswer() {
         status.text = "Incorrect!";
         buttonText.text = "Continue";
-        //continueButton.GetComponent<Renderer>().enabled = true;
-        //continueButton.enabled = true;
-        Show();
+        Show(continueCanvasGroup);
         disableMCButtons();
     }
 
     private void disableMCButtons() {
-        foreach (Button b in MCButtons) {
-            b.enabled = false;
-        }
-    }
-
-    public void enableMCButtons() {
-        foreach (Button b in MCButtons) {
-            b.enabled = true;
+        for (int i=0; i<4; i++) {
+            bool isCorrect = (i==answers[questionNumber-1]);
+            MCButtons[i].GetComponent<ButtonTransitioner>().m_NormalColor = isCorrect ? Color.green : Color.red;
+            MCButtons[i].GetComponent<ButtonTransitioner>().m_HoverColor = isCorrect ? Color.green : Color.red;
+            MCButtons[i].GetComponent<ButtonTransitioner>().m_DownColor = isCorrect ? Color.green : Color.red;
         }
     }
 
@@ -67,20 +59,21 @@ public class MCManager : MonoBehaviour {
             // Assign which choices are correct/wrong
             bool isCorrect = (i==answers[questionNumber]);
             MCButtons[i].GetComponent<ButtonTransitioner>().isCorrect = isCorrect;
+            MCButtons[i].GetComponent<ButtonTransitioner>().m_NormalColor = Color.white;
+            MCButtons[i].GetComponent<ButtonTransitioner>().m_HoverColor = Color.grey;
             MCButtons[i].GetComponent<ButtonTransitioner>().m_DownColor = isCorrect ? Color.green : Color.red;
         }
-        questionNumber++;
         status.text = "";
-        //continueButton.enabled = false;
-        Hide();
+        Hide(continueCanvasGroup);
+        questionNumber++;
     }
 
-    public void Hide() {
+    private void Hide(CanvasGroup m_CanvasGroup) {
         m_CanvasGroup.alpha = 0f; //this makes everything transparent
         m_CanvasGroup.blocksRaycasts = false; //this prevents the UI element to receive input events
     }
 
-    public void Show() {
+    private void Show(CanvasGroup m_CanvasGroup) {
         m_CanvasGroup.alpha = 1f;
         m_CanvasGroup.blocksRaycasts = true;
     }
