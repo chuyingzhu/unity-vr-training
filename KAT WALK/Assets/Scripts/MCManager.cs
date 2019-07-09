@@ -41,13 +41,12 @@ public class MCManager : MonoBehaviour {
     private void disableMCButtons() {
         for (int i=0; i<4; i++) {
             bool isCorrect = (i==answers[questionNumber-1]);
-            MCButtons[i].GetComponent<ButtonTransitioner>().m_NormalColor = isCorrect ? Color.green : Color.red;
-            MCButtons[i].GetComponent<ButtonTransitioner>().m_HoverColor = isCorrect ? Color.green : Color.red;
-            MCButtons[i].GetComponent<ButtonTransitioner>().m_DownColor = isCorrect ? Color.green : Color.red;
+            MCButtons[i].GetComponent<Image>().color = isCorrect ? Color.green : Color.red;
+            MCButtons[i].GetComponent<ButtonTransitioner>().enabled = false;
         }
     }
 
-    // Change the question, choices, and answers
+    // Enable MC buttons, change the question, choices, and answers
     public void nextQuestion() {
         if (questionNumber >= questions.Length) {
             ShowResults();
@@ -56,12 +55,12 @@ public class MCManager : MonoBehaviour {
         questionText.text = questions[questionNumber];
         // Assign choices
         for (int i=0; i<4; i++) {
+            // Enable MC Buttons
+            MCButtons[i].GetComponent<ButtonTransitioner>().enabled = true;
             MCButtons[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = choices[questionNumber, i];
             // Assign which choices are correct/wrong
             bool isCorrect = (i==answers[questionNumber]);
             MCButtons[i].GetComponent<ButtonTransitioner>().isCorrect = isCorrect;
-            MCButtons[i].GetComponent<ButtonTransitioner>().m_NormalColor = Color.white;
-            MCButtons[i].GetComponent<ButtonTransitioner>().m_HoverColor = Color.grey;
             MCButtons[i].GetComponent<ButtonTransitioner>().m_DownColor = isCorrect ? Color.green : Color.red;
         }
         status.text = "";
