@@ -9,6 +9,7 @@ public class MCManager : MonoBehaviour {
     public Text questionText;
     public Text status;
     public CanvasGroup continueCanvasGroup;
+    public CanvasGroup MCCanvasGroup;
 
     private Text buttonText;
     private string[] questions = new string[3] {"1. What is 1+1?", "2. What is 9*8?", "3. What is 12^2?"};
@@ -49,7 +50,7 @@ public class MCManager : MonoBehaviour {
     // Change the question, choices, and answers
     public void nextQuestion() {
         if (questionNumber >= questions.Length) {
-            return;
+            ShowResults();
         }
         // Assign question
         questionText.text = questions[questionNumber];
@@ -76,5 +77,10 @@ public class MCManager : MonoBehaviour {
     private void Show(CanvasGroup m_CanvasGroup) {
         m_CanvasGroup.alpha = 1f;
         m_CanvasGroup.blocksRaycasts = true;
+    }
+
+    private void ShowResults() {
+        Hide(continueCanvasGroup);
+        Hide(MCCanvasGroup);
     }
 }
