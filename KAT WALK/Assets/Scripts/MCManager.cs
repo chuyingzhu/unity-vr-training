@@ -16,6 +16,7 @@ public class MCManager : MonoBehaviour {
     private string[,] choices = new string[3,4] {{"1","2","3","4"}, {"no","yes","72","0"}, {"144","idk","infinity","undefined"}};
     private int[] answers = new int[3] {1, 2, 0};
     private int questionNumber = 0;
+    private int correct = 0;
 
     private void Awake() {
         buttonText = continueButton.transform.GetChild(0).gameObject.GetComponent<Text>();
@@ -28,6 +29,7 @@ public class MCManager : MonoBehaviour {
         buttonText.text = "Continue";
         Show(continueCanvasGroup);
         disableMCButtons();
+        correct++;
     }
 
     // When user picks the wrong answer, display status
@@ -56,6 +58,7 @@ public class MCManager : MonoBehaviour {
         // Assign choices
         for (int i=0; i<4; i++) {
             // Enable MC Buttons
+            MCButtons[i].GetComponent<Image>().color = Color.white;
             MCButtons[i].GetComponent<ButtonTransitioner>().enabled = true;
             MCButtons[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = choices[questionNumber, i];
             // Assign which choices are correct/wrong
@@ -81,5 +84,7 @@ public class MCManager : MonoBehaviour {
     private void ShowResults() {
         Hide(continueCanvasGroup);
         Hide(MCCanvasGroup);
+        Text m_Text = transform.parent.gameObject.AddComponent<Text>();
+        m_Text.text = "Your score is " + correct + " / " + questions.Length + ".";
     }
 }
