@@ -52,6 +52,7 @@ public class MCManager : MonoBehaviour {
     public void nextQuestion() {
         if (questionNumber >= questions.Length) {
             ShowResults();
+            return;
         }
         // Assign question
         questionText.text = questions[questionNumber];
