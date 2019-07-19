@@ -15,7 +15,9 @@ public class LiquidManager : MonoBehaviour {
     }
 
     public void FillContainer() {
-        fillAmount -= 0.01f;
-        meshRenderer.material.SetFloat("_FillAmount", fillAmount);
+    	if (fillAmount > 0.2) {
+        	fillAmount -= 0.01f;
+        	meshRenderer.material.SetFloat("_FillAmount", fillAmount);
+        }
     }
 }
