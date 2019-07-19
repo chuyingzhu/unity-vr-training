@@ -29,6 +29,11 @@ public class ColorManager : MonoBehaviour {
         m_Material.color = Color.black;
     }
 
+    public void changeToClear() {
+        // RGBA, white
+        m_Material.color = new Color(255.0f, 255.0f, 255.0f, 0.0f);
+    }
+
     void OnDestroy() {
         //Destroy the instance
         Destroy(m_Material);

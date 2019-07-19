@@ -61,7 +61,7 @@ public class Hand : MonoBehaviour {
 
     // Called when controller collides with an object
     private void OnTriggerEnter(Collider other) {
-        // If object is neither type "Interactable" or "Heavy", simply ignore it
+        // If object is neither type "Interactable" or "Heavy" or "Flask", simply ignore it
         if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask")) {
             return;
         }
@@ -73,7 +73,7 @@ public class Hand : MonoBehaviour {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
             }
         }
-        else if (other.gameObject.CompareTag("Interactable")) {
+        else if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("Flask")) {
             // As long as the other hand is not holding the same target, change to green
             if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
@@ -83,7 +83,7 @@ public class Hand : MonoBehaviour {
 
     // Called when controller no longer collides with an object
     private void OnTriggerExit(Collider other) {
-        // If object is neither type "Interactable" or "Heavy", simply ignore it
+        // If object is neither type "Interactable" or "Heavy" or "Flask", simply ignore it
         if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask")) {
             return;
         }
@@ -97,6 +97,12 @@ public class Hand : MonoBehaviour {
             // As long as the other hand is not holding the same target, change to green
             if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
                 other.gameObject.GetComponent<ColorManager>().changeToRed();
+            }
+        }
+        else if (other.gameObject.CompareTag("Flask")) {
+            // As long as the other hand is not holding the same target, change to clear
+            if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
+                other.gameObject.GetComponent<ColorManager>().changeToClear();
             }
         }
     }

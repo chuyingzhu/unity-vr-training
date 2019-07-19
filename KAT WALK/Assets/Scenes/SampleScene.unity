@@ -272,7 +272,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 0a0103a0c1acb437686a3ed47d0aa71b,
         type: 3}
       propertyPath: m_TagString
-      value: Interactable
+      value: Flask
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a0103a0c1acb437686a3ed47d0aa71b,
         type: 3}
@@ -526,7 +526,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: a8eadb10020df406d991cf46f40753ef,
         type: 3}
       propertyPath: m_TagString
-      value: Interactable
+      value: Flask
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a8eadb10020df406d991cf46f40753ef,
         type: 3}
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168909611012921}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03b04a8c413054de2b2ba8e1f9240ebf, type: 3}
   m_Name: 
@@ -3988,7 +3988,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 392865750ec844e4f9851a08bc5cc05c, type: 2}
+  - {fileID: 2100000, guid: bee19f55fe366e74baa1dceb16418e47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4298,7 +4298,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 392865750ec844e4f9851a08bc5cc05c, type: 2}
+  - {fileID: 2100000, guid: bee19f55fe366e74baa1dceb16418e47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4355,6 +4355,7 @@ GameObject:
   - component: {fileID: 3191701824008459570}
   - component: {fileID: 3191701824008459569}
   - component: {fileID: 3191701824008459568}
+  - component: {fileID: 3191701824008459571}
   m_Layer: 0
   m_Name: Flask_05
   m_TagString: Flask
@@ -4406,6 +4407,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3191701824008459571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191701824008459567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b04a8c413054de2b2ba8e1f9240ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6606988748915428943
 Transform:
   m_ObjectHideFlags: 0
