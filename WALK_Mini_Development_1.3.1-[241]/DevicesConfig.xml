@@ -1,7 +1,7 @@
 <root>
   <DeadZone Value="800" />
   <DecSpeed Value="800" />
-  <yaw Value="331" />
+  <yaw Value="218" />
   <setback Value="70" />
   <setfront Value="80" />
   <single Value="300" />
@@ -15,6 +15,6 @@
   <RightKalmanR Value="0.55" />
   <Speed Value="15" />
   <Back Value="1" />
-  <Lateral Value="1" />
+  <Lateral Value="0" />
   <CCS Value="0" />
 </root>
