@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - Heavy
   - Flask
+  - Marker
   layers:
   - Default
   - TransparentFX
