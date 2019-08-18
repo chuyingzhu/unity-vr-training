@@ -20,6 +20,9 @@ public class Player : MonoBehaviour {
         }
         print("Marker detected");
 		other.gameObject.GetComponent<ColorManager>().changeToGreen();
-		m_Markers[++current].active = true;
+		other.enabled = false;
+		if (current < m_Markers.Count) {
+			m_Markers[++current].active = true;
+		}
     }
 }
