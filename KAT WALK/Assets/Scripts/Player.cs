@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 
 	private void Awake() {
         for (int i=1; i<m_Markers.Count; i++) {
-        	m_Markers[i].active = false;
+        	m_Markers[i].SetActive(false);
         }
     }
 
