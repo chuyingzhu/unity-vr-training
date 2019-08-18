@@ -18,7 +18,6 @@ public class Player : MonoBehaviour {
         if (!other.gameObject.CompareTag("Marker")) {
             return;
         }
-        print("Marker detected");
 		other.gameObject.GetComponent<ColorManager>().changeToGreen();
 		other.enabled = false;
 		if (++current < m_Markers.Count) {
