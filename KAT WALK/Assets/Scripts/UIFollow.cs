@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIFollow : MonoBehaviour {
-	public Text label;
-	public Camera m_Camera;
+	public TextMeshPro text;
 
     // Update is called once per frame
     void Update() {
-        Vector3 namePos = m_Camera.WorldToScreenPoint(this.transform.position);
-        label.transform.position = namePos;
+        text.transform.position = this.transform.position;
     }
 }
