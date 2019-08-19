@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     private int currentMarker = 0;
     // 1 means the step has a marker, 0 means it does not
     // Step[2] has a temp marker, will use a real doorknob later
-    private int[] stepInfo = new int [8] {1, 1, 1, 0, 1, 1, 1, 0};
+    private int[] stepInfo = new int [8] {1, 1, 1, 0, 1, 1, 1, 1};
 
 	private void Awake() {
         for (int i=1; i<m_Markers.Count; i++) {
