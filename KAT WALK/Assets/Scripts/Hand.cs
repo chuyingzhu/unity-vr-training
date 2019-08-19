@@ -19,6 +19,8 @@ public class Hand : MonoBehaviour {
 
     public GameObject otherController = null;
 
+    public Player m_Player;
+
     // How much touchpad value affects speed (-1 to 1)
     public float m_Sensitivity = 0.1f;
     public float m_MaxSpeed = 1.0f;
@@ -62,7 +64,7 @@ public class Hand : MonoBehaviour {
     // Called when controller collides with an object
     private void OnTriggerEnter(Collider other) {
         // If object is neither type "Interactable" or "Heavy" or "Flask", simply ignore it
-        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask")) {
+        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask") && !other.gameObject.CompareTag("Tyvex")) {
             return;
         }
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
@@ -73,7 +75,7 @@ public class Hand : MonoBehaviour {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
             }
         }
-        else if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("Flask")) {
+        else if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("Flask") || other.gameObject.CompareTag("Tyvex")) {
             // As long as the other hand is not holding the same target, change to green
             if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
@@ -84,7 +86,7 @@ public class Hand : MonoBehaviour {
     // Called when controller no longer collides with an object
     private void OnTriggerExit(Collider other) {
         // If object is neither type "Interactable" or "Heavy" or "Flask", simply ignore it
-        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask")) {
+        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask") && !other.gameObject.CompareTag("Tyvex")) {
             return;
         }
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
@@ -103,6 +105,12 @@ public class Hand : MonoBehaviour {
             // As long as the other hand is not holding the same target, change to clear
             if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
                 other.gameObject.GetComponent<ColorManager>().changeToClear();
+            }
+        }
+        else if (other.gameObject.CompareTag("Tyvex")) {
+            // As long as the other hand is not holding the same target, change to clear
+            if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
+                other.gameObject.GetComponent<ColorManager>().changeToGray();
             }
         }
     }
@@ -125,6 +133,11 @@ public class Hand : MonoBehaviour {
         if (m_CurrentInteractable.m_ActiveHand && m_CurrentInteractable.gameObject.CompareTag("Interactable")) {
             m_CurrentInteractable.m_ActiveHand.Drop();
             m_CurrentInteractable.GetComponent<ColorManager>().changeToBlue();
+        }
+        // Tyvex
+        if (m_CurrentInteractable.gameObject.CompareTag("Tyvex")) {
+            m_CurrentInteractable.gameObject.SetActive(false);
+            m_Player.NextStep();
         }
         // Position
         // m_CurrentInteractable.transform.position = transform.position;

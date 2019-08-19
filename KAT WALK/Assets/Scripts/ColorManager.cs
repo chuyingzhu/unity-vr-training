@@ -34,6 +34,10 @@ public class ColorManager : MonoBehaviour {
         m_Material.color = new Color(255.0f, 255.0f, 255.0f, 0.0f);
     }
 
+    public void changeToGray() {
+        m_Material.color = Color.gray;
+    }
+
     void OnDestroy() {
         //Destroy the instance
         Destroy(m_Material);

@@ -39,11 +39,12 @@ public class Player : MonoBehaviour {
         NextStep();
     }
 
-    private void NextStep() {
+    public void NextStep() {
+        // Index range check
         if (++currentStep < steps.Length) {
             // If the upcoming step has a marker
             if (stepInfo[currentStep] == 1) {
-                m_Markers[++currentMarker].active = true;
+                m_Markers[++currentMarker].SetActive(true);
             }
             label.text = steps[currentStep];
         }

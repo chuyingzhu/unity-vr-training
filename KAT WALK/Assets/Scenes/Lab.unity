@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 25489000}
   - component: {fileID: 25488999}
   - component: {fileID: 25488998}
+  - component: {fileID: 25489002}
   m_Layer: 0
   m_Name: Doorknob2
   m_TagString: Marker
@@ -289,13 +290,25 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25488997}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17.639, y: 3.704, z: 9.171}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 2027283847}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &25489002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25488997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b04a8c413054de2b2ba8e1f9240ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &39976288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -509,7 +522,6 @@ GameObject:
   - component: {fileID: 117936309}
   - component: {fileID: 117936308}
   - component: {fileID: 117936307}
-  - component: {fileID: 117936306}
   m_Layer: 0
   m_Name: Marker1
   m_TagString: Marker
@@ -525,28 +537,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117936304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.39, y: 3, z: 11.8}
+  m_LocalPosition: {x: -18.39, y: 3.648, z: 11.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2027283847}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &117936306
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117936304}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &117936307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2080,7 +2076,6 @@ GameObject:
   - component: {fileID: 419136503}
   - component: {fileID: 419136502}
   - component: {fileID: 419136501}
-  - component: {fileID: 419136506}
   m_Layer: 0
   m_Name: Marker0
   m_TagString: Marker
@@ -2167,28 +2162,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419136500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.93, y: 3, z: 32.41}
+  m_LocalPosition: {x: -8.93, y: 3.61, z: 32.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2027283847}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &419136506
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419136500}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &422598814
 GameObject:
   m_ObjectHideFlags: 0
@@ -5253,6 +5232,7 @@ MonoBehaviour:
   m_CurrentInteractable: {fileID: 0}
   m_ContactInteractables: []
   otherController: {fileID: 1246792784953214}
+  m_Player: {fileID: 1029463433}
   m_Sensitivity: 0.1
   m_MaxSpeed: 1
   m_MovePress:
@@ -5285,6 +5265,7 @@ MonoBehaviour:
   m_CurrentInteractable: {fileID: 0}
   m_ContactInteractables: []
   otherController: {fileID: 1080785796341810}
+  m_Player: {fileID: 1029463433}
   m_Sensitivity: 0.1
   m_MaxSpeed: 1
   m_MovePress:
@@ -7627,7 +7608,7 @@ GameObject:
   - component: {fileID: 1815337967}
   m_Layer: 0
   m_Name: Tyvex3
-  m_TagString: Interactable
+  m_TagString: Tyvex
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7640,11 +7621,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815337960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.39, y: 3, z: 5.031}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -18.389, y: 3.25, z: 5.031}
+  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1815337962
 Rigidbody:
@@ -7705,7 +7686,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1fc4dbfd6d27d4f2b94a717754b2aa8f, type: 2}
+  - {fileID: 2100000, guid: a34efe6cded4945f1aa88097d9623ea8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8596,6 +8577,7 @@ Transform:
   m_Children:
   - {fileID: 419136505}
   - {fileID: 117936305}
+  - {fileID: 25489001}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

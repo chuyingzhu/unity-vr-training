@@ -10,6 +10,7 @@ TagManager:
   - Heavy
   - Flask
   - Marker
+  - Tyvex
   layers:
   - Default
   - TransparentFX
