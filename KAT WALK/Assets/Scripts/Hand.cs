@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
@@ -20,6 +22,9 @@ public class Hand : MonoBehaviour {
     public GameObject otherController = null;
 
     public Player m_Player;
+    public Animator m_Animator;
+
+    private string[] tags = new string [5] {"Interactable", "Heavy", "Tyvex", "Flask", "Button"};
 
     // How much touchpad value affects speed (-1 to 1)
     public float m_Sensitivity = 0.1f;
@@ -63,10 +68,13 @@ public class Hand : MonoBehaviour {
 
     // Called when controller collides with an object
     private void OnTriggerEnter(Collider other) {
-        // If object is neither type "Interactable" or "Heavy" or "Flask", simply ignore it
-        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask") && !other.gameObject.CompareTag("Tyvex")) {
+        // If object's tag is not in the "tags" array, simply ignore it
+        if (!Array.Exists(tags, element => element == other.gameObject.tag)) {
             return;
         }
+        //if (!tags.Contains(other.gameObject.tag)) {
+            //return;
+        //}
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
         // Manage color
         if (other.gameObject.CompareTag("Heavy")) {
@@ -75,7 +83,7 @@ public class Hand : MonoBehaviour {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
             }
         }
-        else if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("Flask") || other.gameObject.CompareTag("Tyvex")) {
+        else if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("Flask") || other.gameObject.CompareTag("Tyvex") || other.gameObject.CompareTag("Button")) {
             // As long as the other hand is not holding the same target, change to green
             if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
@@ -85,10 +93,10 @@ public class Hand : MonoBehaviour {
 
     // Called when controller no longer collides with an object
     private void OnTriggerExit(Collider other) {
-        // If object is neither type "Interactable" or "Heavy" or "Flask", simply ignore it
-        if (!other.gameObject.CompareTag("Interactable") && !other.gameObject.CompareTag("Heavy") && !other.gameObject.CompareTag("Flask") && !other.gameObject.CompareTag("Tyvex")) {
+        // If object's tag is not in the "tags" array, simply ignore it
+        if (!Array.Exists(tags, element => element == other.gameObject.tag)) {
             return;
-        }
+        }        
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
         // Manage color
         // If both hands empty
@@ -109,6 +117,12 @@ public class Hand : MonoBehaviour {
         }
         else if (other.gameObject.CompareTag("Tyvex")) {
             // As long as the other hand is not holding the same target, change to clear
+            if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
+                other.gameObject.GetComponent<ColorManager>().changeToGray();
+            }
+        }
+        else if (other.gameObject.CompareTag("Button")) {
+             // As long as the other hand is not holding the same target, change to clear
             if (otherController.GetComponent<Hand>().m_CurrentInteractable != other.gameObject.GetComponent<Interactable>()) {
                 other.gameObject.GetComponent<ColorManager>().changeToGray();
             }
@@ -137,7 +151,18 @@ public class Hand : MonoBehaviour {
         // Tyvex
         if (m_CurrentInteractable.gameObject.CompareTag("Tyvex")) {
             m_CurrentInteractable.gameObject.SetActive(false);
+            print("Tyvex selected");
             m_Player.NextStep();
+            return;
+        }
+        // Button
+        if (m_CurrentInteractable.gameObject.CompareTag("Button")) {
+            m_CurrentInteractable.gameObject.SetActive(false);
+            // Play animation
+            m_Animator.Play("Take 001", -1, 0f );
+            print("Door opening");
+            m_Player.NextStep();
+            return;
         }
         // Position
         // m_CurrentInteractable.transform.position = transform.position;
