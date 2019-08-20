@@ -17,12 +17,10 @@ public class UIFollow : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         text.transform.position = this.transform.position + offset;
-        /*
-        // Flip the text if head turns around
-        if (m_Camera.transform.localEulerAngles.y > 90 || m_Camera.transform.localEulerAngles.y < -90) {
+        // Flip the text if head turns around (90 to 270 degrees)
+        if (m_Camera.transform.localEulerAngles.y > 90 && m_Camera.transform.localEulerAngles.y < 270) {
             print("Head flipped");
         	transform.localScale = new Vector3(-1.0f, 0, 0);
-        }*/
-        print(m_Camera.transform.localEulerAngles.y);
+        }
     }
 }
