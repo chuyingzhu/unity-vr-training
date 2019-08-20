@@ -19,8 +19,7 @@ public class UIFollow : MonoBehaviour {
         text.transform.position = this.transform.position + offset;
         // Flip the text if head turns around (90 to 270 degrees)
         if (m_Camera.transform.localEulerAngles.y > 90 && m_Camera.transform.localEulerAngles.y < 270) {
-            print("Head flipped");
-        	transform.localScale = new Vector3(-1.0f, 0, 0);
+        	text.transform.localScale = new Vector3(-1.0f, 0, 0);
         }
     }
 }
