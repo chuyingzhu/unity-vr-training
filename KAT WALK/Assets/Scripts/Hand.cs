@@ -24,7 +24,7 @@ public class Hand : MonoBehaviour {
     public Player m_Player;
     public Animator m_Animator;
 
-    private string[] tags = new string [5] {"Interactable", "Heavy", "Tyvex", "Flask", "Button"};
+    private string[] tags = new string [6] {"Interactable", "Heavy", "Tyvex", "Flask", "OpenButton", "CloseButton"};
 
     // How much touchpad value affects speed (-1 to 1)
     public float m_Sensitivity = 0.1f;
@@ -120,7 +120,13 @@ public class Hand : MonoBehaviour {
                 other.gameObject.GetComponent<ColorManager>().changeToGray();
             }
         }
-        else if (other.gameObject.CompareTag("Button")) {
+        else if (other.gameObject.CompareTag("OpenButton")) {
+             // As long as the other hand is not hovering over the same target, change to red
+             if (!otherController.GetComponent<Hand>().m_ContactInteractables.Contains(other.gameObject.GetComponent<Interactable>())) {
+                other.gameObject.GetComponent<ColorManager>().changeToRed();
+            }
+        }
+        else if (other.gameObject.CompareTag("CloseButton")) {
              // As long as the other hand is not hovering over the same target, change to red
              if (!otherController.GetComponent<Hand>().m_ContactInteractables.Contains(other.gameObject.GetComponent<Interactable>())) {
                 other.gameObject.GetComponent<ColorManager>().changeToRed();
@@ -153,11 +159,20 @@ public class Hand : MonoBehaviour {
             m_Player.NextStep();
             return;
         }
-        // Button
-        if (m_CurrentInteractable.gameObject.CompareTag("Button")) {
+        // OpenButton
+        if (m_CurrentInteractable.gameObject.CompareTag("OpenButton")) {
             m_CurrentInteractable.gameObject.SetActive(false);
             // Play animation
-            m_Animator.Play("Open", -1, 0f );
+            m_Animator.Play("Open", -1, 0f);
+            m_Player.NextStep();
+            return;
+        }
+        // CloseButton
+        if (m_CurrentInteractable.gameObject.CompareTag("CloseButton")) {
+            m_CurrentInteractable.gameObject.SetActive(false);
+            // Reverse animation play
+            m_Animator.SetFloat("Direction", -1);
+            m_Animator.Play("Open", -1, 0f);
             m_Player.NextStep();
             return;
         }
@@ -226,6 +241,7 @@ public class Hand : MonoBehaviour {
         return nearest;
     }
 
+    // FOR TOUCHPAD MOVEMENT
     private void CalculateMovement() {
         // Figure out movement orientation
         Vector3 orientationEuler = new Vector3(0, m_Camera.transform.eulerAngles.y, 0);

@@ -11,7 +11,8 @@ TagManager:
   - Flask
   - Marker
   - Tyvex
-  - Button
+  - OpenButton
+  - CloseButton
   layers:
   - Default
   - TransparentFX

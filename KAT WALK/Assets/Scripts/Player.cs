@@ -7,7 +7,7 @@ using TMPro;
 public class Player : MonoBehaviour {
 	public List<GameObject> m_Markers = new List<GameObject>();
     public TextMeshPro label;
-    private string[] steps = new string [9] {"Welcome. Please Walk to the door.",
+    private string[] steps = new string [10] {"Welcome. Please Walk to the door.",
                                             "Good job! Next, walk to the change room.",
                                             "Open the door.",
                                             "Great! Now grab a Tyvex.",
@@ -15,12 +15,13 @@ public class Player : MonoBehaviour {
                                             "Walk to the reception table.",
                                             "Walk to the indicated door.",
                                             "Open the door.",
-                                        	"Push the button."};
+                                        	"Push the button to open door.",
+                                            "Push the button to close door."};
 	private int currentStep = 0;
     private int currentMarker = 0;
     // 1 means the step has a marker, 0 means it does not
     // Step[2] has a temp marker, will use a real doorknob later
-    private int[] stepInfo = new int [9] {1, 1, 1, 0, 1, 1, 1, 1, 0};
+    private int[] stepInfo = new int [10] {1, 1, 1, 0, 1, 1, 1, 1, 0, 0};
 
 	private void Awake() {
         for (int i=1; i<m_Markers.Count; i++) {
