@@ -171,8 +171,8 @@ public class Hand : MonoBehaviour {
         if (m_CurrentInteractable.gameObject.CompareTag("CloseButton")) {
             m_CurrentInteractable.gameObject.SetActive(false);
             // Reverse animation play
-            m_Animator.SetFloat("Direction", -1);
-            m_Animator.Play("Open", -1, 0f);
+            m_Animator.SetFloat("Direction", -1.0f);
+            m_Animator.Play("Open", -1, float.NegativeInfinity);
             m_Player.NextStep();
             return;
         }
