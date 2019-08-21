@@ -157,7 +157,7 @@ public class Hand : MonoBehaviour {
         if (m_CurrentInteractable.gameObject.CompareTag("Button")) {
             m_CurrentInteractable.gameObject.SetActive(false);
             // Play animation
-            m_Animator.Play("Take 001", -1, 0f );
+            m_Animator.Play("Open", -1, 0f );
             m_Player.NextStep();
             return;
         }
