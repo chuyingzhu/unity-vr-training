@@ -34,6 +34,7 @@ public class Player : MonoBehaviour {
     private void OnCollisionEnter(Collision coll) {
         // If object is not the type "Marker" simply ignore it
         if (!coll.gameObject.CompareTag("Marker")) {
+            print("not valid collision");
             return;
         }
         print("collision");
