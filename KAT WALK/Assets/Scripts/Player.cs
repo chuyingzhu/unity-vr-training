@@ -31,13 +31,14 @@ public class Player : MonoBehaviour {
     }
 
     // Called when player collides with an object
-    private void OnTriggerEnter(Collider other) {
+    private void OnCollisionEnter(Collision coll) {
         // If object is not the type "Marker" simply ignore it
-        if (!other.gameObject.CompareTag("Marker")) {
+        if (!coll.gameObject.CompareTag("Marker")) {
             return;
         }
-		other.gameObject.GetComponent<ColorManager>().changeToGreen();
-		other.enabled = false;
+        print("collision");
+		coll.gameObject.GetComponent<ColorManager>().changeToGreen();
+		coll.gameObject.SetActive(false);
         NextStep();
     }
 
