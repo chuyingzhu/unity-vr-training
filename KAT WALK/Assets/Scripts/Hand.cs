@@ -69,6 +69,7 @@ public class Hand : MonoBehaviour {
     // Called when controller collides with an object
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Door") {
+            print("touching door");
             other.gameObject.GetComponent<Door>().Open();
         }
         // If object's tag is not in the "tags" array, simply ignore it
