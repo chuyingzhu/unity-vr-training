@@ -7,15 +7,12 @@ public class Door : MonoBehaviour {
     bool opening=false;
     bool closing=false;
     float rotateDegree=0.0f;
-    void Start(){
-        transform.Rotate(0,90,0);
-        transform.Rotate(0,90,0);
-    }
+ 
     void Update(){
         if(opening) {
             print("opening");
-            transform.Rotate(0,10*Time.deltaTime,0);
-            rotateDegree += (10*Time.deltaTime);
+            transform.Rotate(0,1,0);
+            rotateDegree += (1);
             if(rotateDegree>110) {
                 opening =false;
                 isOpen=true;
@@ -23,8 +20,8 @@ public class Door : MonoBehaviour {
         }
         if(closing){
             print("closing");
-            transform.Rotate(0,-10*Time.deltaTime,0);
-            rotateDegree-=(10*Time.deltaTime);
+            transform.Rotate(0,-1,0);
+            rotateDegree-=(1);
             if(rotateDegree<0){
                 closing=false;
                 isOpen=false;
