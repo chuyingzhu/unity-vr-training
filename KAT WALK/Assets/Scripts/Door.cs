@@ -7,7 +7,8 @@ public class Door : MonoBehaviour {
     bool open=false;
     bool close=false;
     int rotateDegree=0;
-    public void update(){
+    
+    void Update(){
         if(open==true){
             print("opening");
                 transform.Rotate(0,10*Time.deltaTime,0);
