@@ -65,13 +65,18 @@ public class Hand : MonoBehaviour {
             }
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag=="Door"){
 
+        if(m_UseAction.GetStateDown(m_Pose.inputSource)){
+            other.gameObject.GetComponentInParent<Door>().Open();
+        }
+            
+        }
+    }
     // Called when controller collides with an object
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Door") {
-            print("touching door");
-            other.gameObject.GetComponent<Door>().Open();
-        }
         // If object's tag is not in the "tags" array, simply ignore it
         if (!Array.Exists(tags, element => element == other.gameObject.tag)) {
             return;
