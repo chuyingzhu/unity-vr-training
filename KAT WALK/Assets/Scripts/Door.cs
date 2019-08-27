@@ -4,41 +4,42 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
     bool isOpen=false;
-    bool open=false;
-    bool close=false;
-    int rotateDegree=0;
-    
+    bool opening=false;
+    bool closing=false;
+    float rotateDegree=0.0f;
+    void Start(){
+        transform.Rotate(0,90,0);
+        transform.Rotate(0,90,0);
+    }
     void Update(){
-        if(open==true){
+        if(opening) {
             print("opening");
-                transform.Rotate(0,10*Time.deltaTime,0);
-                rotateDegree+=10;
-                if(rotateDegree>=110){
-                    open=false;
-                    isOpen=true;
-                }
-            
+            transform.Rotate(0,10*Time.deltaTime,0);
+            rotateDegree += (10*Time.deltaTime);
+            if(rotateDegree>110) {
+                opening =false;
+                isOpen=true;
+            }
         }
-        if(close==true){
+        if(closing){
             print("closing");
-                transform.Rotate(0,-10*Time.deltaTime,0);
-                rotateDegree-=10;
-                if(rotateDegree<=0){
-                    close=false;
-                    isOpen=false;
-                }
-            
+            transform.Rotate(0,-10*Time.deltaTime,0);
+            rotateDegree-=(10*Time.deltaTime);
+            if(rotateDegree<0){
+                closing=false;
+                isOpen=false;
+            }
         }
     }
 
     public void Open(){
         print("click");
         if(!isOpen){
-            open=true;
+            opening=true;
             print("open");
         }
         else {
-            close=true;
+            closing=true;
             print("close");
         }
 
