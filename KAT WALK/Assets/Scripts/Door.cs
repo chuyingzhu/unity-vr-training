@@ -18,12 +18,15 @@ public class Door : MonoBehaviour
         
     }
 
-    void OnMouseDown(){
+    public void Open(){
+        print("click");
         if(!isOpen){
             transform.Rotate(0,110,0);
+            isOpen=true;
         }
         else {
             transform.Rotate(0,-110,0);
+            isOpen=false;
         }
 
     }
