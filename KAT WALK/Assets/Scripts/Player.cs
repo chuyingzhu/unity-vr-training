@@ -33,7 +33,9 @@ public class Player : MonoBehaviour {
     }
     private void Update()
     {
-        transform.rotation = eyeCamera.transform.rotation;
+        transform.rotation= Quaternion.Euler(transform.rotation.eulerAngles.x, eyeCamera.transform.rotation.y, transform.rotation.eulerAngles.x);
+       
+            
     }
     // Called when player collides with an object
     private void OnCollisionEnter(Collision coll) {
