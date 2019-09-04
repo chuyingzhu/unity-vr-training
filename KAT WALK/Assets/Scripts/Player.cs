@@ -7,7 +7,7 @@ using TMPro;
 public class Player : MonoBehaviour {
 	public List<GameObject> m_Markers = new List<GameObject>();
     public TextMeshPro label;
-    public Camera eyeCamera;
+    
 
     private string[] steps = new string [10] {"Welcome. Please Walk to the door.",
                                             "Good job! Next, walk to the change room.",
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
     }
     private void Update()
     {
-        transform.rotation = eyeCamera.transform.rotation;
+       // transform.rotation = this.gameObject.transform.GetChild(0).rotation;
     }
     // Called when player collides with an object
     private void OnCollisionEnter(Collision coll) {

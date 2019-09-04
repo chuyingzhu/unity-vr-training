@@ -4854,7 +4854,6 @@ MonoBehaviour:
   - {fileID: 351750942}
   - {fileID: 158297846}
   label: {fileID: 644298016}
-  eyeCamera: {fileID: 20735029807373400}
 --- !u!1 &1036470277
 GameObject:
   m_ObjectHideFlags: 0
@@ -9562,7 +9561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165206341710276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -10, z: -3.1}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4642379151648252}
@@ -10201,7 +10200,7 @@ MonoBehaviour:
   device: 0
   displayLanguage: 0
   targetMoveObject: {fileID: 1029463430}
-  targetRotateObject: {fileID: 4245598273880780}
+  targetRotateObject: {fileID: 1029463430}
   vrCameraRig: {fileID: 4338410044555380}
   vrHandset: {fileID: 4567007761437950}
   multiply: 1
