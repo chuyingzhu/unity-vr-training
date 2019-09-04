@@ -4789,6 +4789,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 67471f198391b499b8f70674386d7404,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67471f198391b499b8f70674386d7404, type: 3}
 --- !u!1 &1029463429 stripped
@@ -10200,7 +10205,7 @@ MonoBehaviour:
   device: 0
   displayLanguage: 0
   targetMoveObject: {fileID: 1029463430}
-  targetRotateObject: {fileID: 1029463430}
+  targetRotateObject: {fileID: 4245598273880780}
   vrCameraRig: {fileID: 4338410044555380}
   vrHandset: {fileID: 4567007761437950}
   multiply: 1
