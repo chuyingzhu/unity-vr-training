@@ -7350,8 +7350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 644298016}
-  offset: {x: 0, y: 0.2, z: -0.5}
+  offset: 0.5
   m_Camera: {fileID: 20735029807373400}
+  cRotation: 0
 --- !u!1 &1723421073
 GameObject:
   m_ObjectHideFlags: 0
