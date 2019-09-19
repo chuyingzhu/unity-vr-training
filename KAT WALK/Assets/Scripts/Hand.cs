@@ -91,7 +91,18 @@ public class Hand : MonoBehaviour {
         	other.gameObject.GetComponent<ColorManager>().changeToGreen();
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Door")
+        {
 
+            if (m_UseAction.GetStateDown(m_Pose.inputSource))
+            {
+                other.gameObject.GetComponentInParent<Door>().Open();
+            }
+
+        }
+    }
     // Called when controller no longer collides with an object
     private void OnTriggerExit(Collider other) {
         // If object's tag is not in the "tags" array, simply ignore it
