@@ -2115,7 +2115,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &396930684
 PrefabInstance:
@@ -3391,7 +3391,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Welcome. Please walk to the door.
+  m_text: Welcome. Please walk to the entrance.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3460,7 +3460,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 644298016}
-    characterCount: 33
+    characterCount: 37
     spriteCount: 0
     spaceCount: 5
     wordCount: 6
@@ -3543,16 +3543,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644298015}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 38.469}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.686}
+  m_LocalScale: {x: 0.9523808, y: 0.9523808, z: 0.9523808}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 4567007761437950}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.64, y: 3.49}
+  m_AnchoredPosition: {x: -0.016, y: -0.043}
   m_SizeDelta: {x: 0.5, y: 0.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &678807869
@@ -5304,7 +5304,7 @@ Transform:
   - {fileID: 534157666}
   - {fileID: 920862577}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1001 &1091939692
 PrefabInstance:
@@ -6913,7 +6913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1550933472
 Transform:
   m_ObjectHideFlags: 0
@@ -7322,7 +7322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1639334501
 Transform:
   m_ObjectHideFlags: 0
@@ -7487,7 +7487,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1743952125
 GameObject:
@@ -7840,7 +7840,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1815337962
 Rigidbody:
@@ -8046,7 +8046,7 @@ Transform:
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1817780996
 Rigidbody:
@@ -9181,7 +9181,7 @@ Transform:
   - {fileID: 905895779}
   - {fileID: 534264484}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1001 &2072049848
 PrefabInstance:
@@ -10068,7 +10068,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 644298020}
   m_Father: {fileID: 4190915207693254}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10602,7 +10603,7 @@ MonoBehaviour:
   device: 0
   displayLanguage: 0
   targetMoveObject: {fileID: 1029463430}
-  targetRotateObject: {fileID: 1029463430}
+  targetRotateObject: {fileID: 4245598273880780}
   vrCameraRig: {fileID: 4338410044555380}
   vrHandset: {fileID: 4567007761437950}
   multiply: 1
