@@ -7,6 +7,8 @@ using TMPro;
 public class Player : MonoBehaviour {
 	public List<GameObject> m_Markers = new List<GameObject>();
     public TextMeshPro label;
+    public GameObject uiText;
+    TextMeshProUGUI uiLabel;
     private string[] steps = new string [10] {"Welcome. Please Walk to the door.",
                                             "Good job! Next, walk to the change room.",
                                             "Open the door.",
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour {
         	m_Markers[i].SetActive(false);
         }
         label.text = steps[0];
+        uiLabel = uiText.GetComponent<TextMeshProUGUI>();
+        uiLabel.text= steps[0];
     }
 
     // Called when player collides with an object
@@ -51,6 +55,7 @@ public class Player : MonoBehaviour {
                 m_Markers[++currentMarker].SetActive(true);
             }
             label.text = steps[currentStep];
+            uiLabel.text = steps[0];
         }
     }
 }
