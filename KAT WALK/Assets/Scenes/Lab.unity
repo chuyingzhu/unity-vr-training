@@ -305,6 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18121454}
   - component: {fileID: 18121453}
+  - component: {fileID: 18121455}
   m_Layer: 0
   m_Name: UICamera
   m_TagString: Untagged
@@ -363,12 +364,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18121452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: -0.0119}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4567007761437950}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &18121455
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18121452}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &25488997
 GameObject:
   m_ObjectHideFlags: 0
@@ -5345,7 +5362,7 @@ MonoBehaviour:
   - {fileID: 351750942}
   - {fileID: 158297846}
   label: {fileID: 644298016}
-  uiText: {fileID: 0}
+  uiText: {fileID: 1170525700}
 --- !u!21 &1051261322
 Material:
   serializedVersion: 6
@@ -10583,7 +10600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147433648528484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8, y: -16.4, z: -0.9}
+  m_LocalPosition: {x: -0.8, y: -16.55, z: -0.9}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4589590437789244}
