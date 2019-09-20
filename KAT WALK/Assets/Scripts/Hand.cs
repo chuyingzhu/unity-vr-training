@@ -33,7 +33,7 @@ public class Hand : MonoBehaviour {
     public SteamVR_Action_Vector2 m_MoveValue = null;
     public Transform m_CameraRigTransform = null;
     public Camera m_Camera = null;
-    public GameObject tyvex_Outfit;
+
     private float m_Speed = 0.0f;
 
     private void Awake() {
@@ -99,15 +99,6 @@ public class Hand : MonoBehaviour {
             if (m_UseAction.GetStateDown(m_Pose.inputSource))
             {
                 other.gameObject.GetComponentInParent<Door>().Open();
-            }
-
-        }
-        if (other.gameObject.tag == "closet")
-        {
-
-            if (m_UseAction.GetStateDown(m_Pose.inputSource))
-            {
-                tyvex_Outfit.SetActive(true);
             }
 
         }
