@@ -106,7 +106,16 @@ public class Hand : MonoBehaviour {
             }
 
         }
-        if(other.gameObject.tag == "closet")
+        if (other.gameObject.tag == "OpenButton")
+        {
+
+            if (m_UseAction.GetStateDown(m_Pose.inputSource))
+            {
+                other.gameObject.GetComponentInParent<AirLockDoor>().Open();
+            }
+
+        }
+        if (other.gameObject.tag == "closet")
         {
             if (m_UseAction.GetStateDown(m_Pose.inputSource))
             {
