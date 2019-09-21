@@ -32,6 +32,8 @@ public class Player : MonoBehaviour {
         label.text = steps[0];
         uiLabel = uiText.GetComponent<TextMeshProUGUI>();
         uiLabel.text= steps[0];
+        currentStep = 0;
+        currentMarker = 0;
     }
 
     // Called when player collides with an object
@@ -62,13 +64,14 @@ public class Player : MonoBehaviour {
     public void NextStep() {
         // Index range check
         Debug.Log("step " + currentStep);
-        if (++currentStep < steps.Length) {
+        currentStep++;
+        if (currentStep < steps.Length) {
             // If the upcoming step has a marker
             if (stepInfo[currentStep] == 1) {
                 m_Markers[++currentMarker].SetActive(true);
             }
             label.text = steps[currentStep];
-            uiLabel.text = steps[0];
+            uiLabel.text = steps[currentStep];
         }
     }
 }
