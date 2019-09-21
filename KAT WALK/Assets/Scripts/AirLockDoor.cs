@@ -23,6 +23,7 @@ public class AirLockDoor : MonoBehaviour
             {
                 opening = false;
                 isOpen = true;
+                distance = 0;
             }
         }
         if (closing)
@@ -36,6 +37,7 @@ public class AirLockDoor : MonoBehaviour
             {
                 closing = false;
                 isOpen = false;
+                distance = 0;
             }
         }
     }

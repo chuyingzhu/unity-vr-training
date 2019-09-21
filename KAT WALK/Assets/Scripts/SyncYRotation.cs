@@ -14,7 +14,8 @@ public class SyncYRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.eulerAngles = new Vector3(0, target.transform.rotation.y, 0);
+        this.transform.eulerAngles = new Vector3(0, target.transform.localRotation.y, 0);
+        Debug.Log(this.transform.eulerAngles.y);
       //  Quaternion x=new Quaternion.euler
     }
 }
