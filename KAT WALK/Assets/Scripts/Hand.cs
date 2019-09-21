@@ -108,9 +108,11 @@ public class Hand : MonoBehaviour {
         }
         if(other.gameObject.tag == "closet")
         {
-            nakedModel.SetActive(!nakedModel.activeSelf);
+            if (m_UseAction.GetStateDown(m_Pose.inputSource))
+            {
+                nakedModel.SetActive(!nakedModel.activeSelf);
             tyvexModel.SetActive(!tyvexModel.activeSelf);
-
+            }
         }
     }
     // Called when controller no longer collides with an object

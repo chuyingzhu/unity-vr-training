@@ -49,7 +49,16 @@ public class Player : MonoBehaviour {
             NextStep();
         }
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag=="Marker")
+        {
+            print("collision with " + other.gameObject.name);
+            other.gameObject.GetComponent<ColorManager>().changeToGreen();
+            other.gameObject.SetActive(false);
+            NextStep();
+        }
+    }
     public void NextStep() {
         // Index range check
         Debug.Log("step " + currentStep);
