@@ -2091,6 +2091,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tyvex
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6d687820184986b4f93bde97bf51f4d4,
+        type: 3}
+      propertyPath: m_TagString
+      value: closet
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6d687820184986b4f93bde97bf51f4d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5536,7 +5541,7 @@ PrefabInstance:
     - target: {fileID: -1504981713932161579, guid: 67471f198391b499b8f70674386d7404,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67471f198391b499b8f70674386d7404, type: 3}
@@ -5577,7 +5582,7 @@ MeshCollider:
   m_GameObject: {fileID: 1029463429}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -5604,20 +5609,6 @@ MonoBehaviour:
   - {fileID: 158297846}
   label: {fileID: 644298016}
   uiText: {fileID: 1170525700}
---- !u!136 &1029463434
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029463429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 2.41
-  m_Height: 11.73051
-  m_Direction: 1
-  m_Center: {x: 0, y: -4.955363, z: -0.4254017}
 --- !u!21 &1051261322
 Material:
   serializedVersion: 6

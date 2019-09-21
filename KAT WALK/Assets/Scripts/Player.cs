@@ -37,18 +37,22 @@ public class Player : MonoBehaviour {
     // Called when player collides with an object
     private void OnCollisionEnter(Collision coll) {
         // If object is not the type "Marker" simply ignore it
-        if (!coll.gameObject.CompareTag("Marker")) {
-            print("not valid collision");
-            return;
+        //if (!coll.gameObject.CompareTag("Marker")) {
+           // print("not valid collision");
+       //     return;
+       // }
+        if (coll.gameObject.tag == "Marker")
+        {
+            print("collision with "+coll.gameObject.name);
+            coll.gameObject.GetComponent<ColorManager>().changeToGreen();
+            coll.gameObject.SetActive(false);
+            NextStep();
         }
-        print("collision");
-		coll.gameObject.GetComponent<ColorManager>().changeToGreen();
-		coll.gameObject.SetActive(false);
-        NextStep();
     }
 
     public void NextStep() {
         // Index range check
+        Debug.Log("step " + currentStep);
         if (++currentStep < steps.Length) {
             // If the upcoming step has a marker
             if (stepInfo[currentStep] == 1) {

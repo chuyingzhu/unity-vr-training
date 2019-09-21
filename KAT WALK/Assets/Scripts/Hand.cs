@@ -108,9 +108,9 @@ public class Hand : MonoBehaviour {
         }
         if(other.gameObject.tag == "closet")
         {
-            nakedModel.SetActive(false);
-            tyvexModel.SetActive(true);
-            Debug.Log("closet action triggered");
+            nakedModel.SetActive(!nakedModel.activeSelf);
+            tyvexModel.SetActive(!tyvexModel.activeSelf);
+
         }
     }
     // Called when controller no longer collides with an object
