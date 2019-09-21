@@ -34,6 +34,10 @@ public class Hand : MonoBehaviour {
     public Transform m_CameraRigTransform = null;
     public Camera m_Camera = null;
 
+    //body and tyvex model
+    public GameObject nakedModel;
+    public GameObject tyvexModel;
+
     private float m_Speed = 0.0f;
 
     private void Awake() {
@@ -101,6 +105,11 @@ public class Hand : MonoBehaviour {
                 other.gameObject.GetComponentInParent<Door>().Open();
             }
 
+        }
+        if(other.gameObject.tag == "closet")
+        {
+            nakedModel.SetActive(!nakedModel.activeSelf);
+            tyvexModel.SetActive(!tyvexModel.activeSelf);
         }
     }
     // Called when controller no longer collides with an object

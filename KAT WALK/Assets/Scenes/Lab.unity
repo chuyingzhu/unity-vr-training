@@ -733,7 +733,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!895512359 &53817160
 AimConstraint:
@@ -2169,6 +2169,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 320153400}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &320153402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 6d687820184986b4f93bde97bf51f4d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 320153400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &320153403
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320153402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.904236, y: 2.9934938, z: 1.254583}
+  m_Center: {x: -9.321191e-21, y: -0.00000011920929, z: 0.00000017881393}
 --- !u!1001 &343848434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5558,7 +5577,7 @@ MeshCollider:
   m_GameObject: {fileID: 1029463429}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -7159,7 +7178,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!64 &1403860604
 MeshCollider:
@@ -7175,49 +7194,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4314204271077359304, guid: 90757f7f3f2def541844bdad34d5e97b, type: 3}
---- !u!895512359 &1403860605
-AimConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403860602}
-  m_Enabled: 0
-  m_Weight: 1
-  m_RotationAtRest: {x: -0, y: 180, z: -0}
-  m_RotationOffset: {x: 77.67167, y: 180, z: 0}
-  m_AimVector: {x: 0, y: 0, z: 1}
-  m_UpVector: {x: 0, y: 1, z: 0}
-  m_WorldUpVector: {x: 0, y: 1, z: 0}
-  m_WorldUpObject: {fileID: 0}
-  m_UpType: 0
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 4245598273880780}
-    weight: 1
---- !u!1818360608 &1403860606
-PositionConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403860602}
-  m_Enabled: 0
-  m_Weight: 1
-  m_TranslationAtRest: {x: -0.010000864, y: -2.6999998, z: -1.22}
-  m_TranslationOffset: {x: 0, y: 7.299999, z: 1.8800006}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 4245598273880780}
-    weight: 1
 --- !u!114 &1403860607
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ TagManager:
   - Tyvex
   - OpenButton
   - CloseButton
+  - Door
+  - closet
   layers:
   - Default
   - TransparentFX
