@@ -5577,7 +5577,7 @@ MeshCollider:
   m_GameObject: {fileID: 1029463429}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -5604,6 +5604,20 @@ MonoBehaviour:
   - {fileID: 158297846}
   label: {fileID: 644298016}
   uiText: {fileID: 1170525700}
+--- !u!136 &1029463434
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029463429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.41
+  m_Height: 11.73051
+  m_Direction: 1
+  m_Center: {x: 0, y: -4.955363, z: -0.4254017}
 --- !u!21 &1051261322
 Material:
   serializedVersion: 6
@@ -6123,6 +6137,8 @@ MonoBehaviour:
     needsReinit: 0
   m_CameraRigTransform: {fileID: 1029463430}
   m_Camera: {fileID: 20735029807373400}
+  nakedModel: {fileID: 53817156}
+  tyvexModel: {fileID: 1403860602}
 --- !u!114 &1146802332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6157,6 +6173,8 @@ MonoBehaviour:
     needsReinit: 0
   m_CameraRigTransform: {fileID: 1029463430}
   m_Camera: {fileID: 20735029807373400}
+  nakedModel: {fileID: 53817156}
+  tyvexModel: {fileID: 1403860602}
 --- !u!135 &1146802333
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7079,6 +7097,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tyvex_outfit
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90757f7f3f2def541844bdad34d5e97b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 90757f7f3f2def541844bdad34d5e97b,
         type: 3}
