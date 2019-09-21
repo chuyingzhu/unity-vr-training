@@ -184,6 +184,11 @@ public class Hand : MonoBehaviour {
         if (!m_CurrentInteractable) {
             return;
         }
+        //Already held check
+        if (m_CurrentInteractable.m_ActiveHand)
+        {
+            m_CurrentInteractable.m_ActiveHand.Drop();
+        }
         // Heavy obj check
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
             // If the other hand is not hovering over the same obj
