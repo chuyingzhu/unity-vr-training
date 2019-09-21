@@ -108,7 +108,7 @@ public class Hand : MonoBehaviour {
         }
         if (other.gameObject.tag == "OpenButton")
         {
-
+            Debug.Log("OpenButton detected");
             if (m_UseAction.GetStateDown(m_Pose.inputSource))
             {
                 other.gameObject.GetComponentInParent<AirLockDoor>().Open();
@@ -122,6 +122,15 @@ public class Hand : MonoBehaviour {
                 nakedModel.SetActive(!nakedModel.activeSelf);
             tyvexModel.SetActive(!tyvexModel.activeSelf);
             }
+        }
+        if (other.gameObject.tag == "Flask")
+        {
+            Debug.Log("Flask detected");
+            if (m_UseAction.GetStateDown(m_Pose.inputSource))
+            {
+                Pickup();
+            }
+
         }
     }
     // Called when controller no longer collides with an object
