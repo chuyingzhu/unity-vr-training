@@ -5,6 +5,7 @@ using UnityEngine;
 public class SyncYRotation : MonoBehaviour
 {
     public GameObject target;
+    Quaternion newRotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +15,11 @@ public class SyncYRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.eulerAngles = new Vector3(0, target.transform.localRotation.y, 0);
-        Debug.Log(this.transform.eulerAngles.y);
+        newRotation = Quaternion.Euler(0, target.transform.rotation.y, 0);
+        this.transform.rotation = newRotation;
+       // this.transform.rotation = Quaternion.Euler(0, target.transform.rotation.y, 0);
+       // this.transform.eulerAngles = new Vector3(0, target.transform.localRotation.y, 0);
+        Debug.Log("rotationy: "+this.transform.rotation.y+" eulery: "+this.transform.eulerAngles.y);
       //  Quaternion x=new Quaternion.euler
     }
 }
