@@ -16,11 +16,6 @@ public class testscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        y +=pos ;
-        if (y > 180)
-            y = -179;
-        newRotation = Quaternion.Euler(0.0f, y, 0);
-        this.transform.rotation = newRotation;
-        Debug.Log(this.transform.rotation);
+      this.transform.localPosition += new Vector3(0.2f, 0, 0);
     }
 }

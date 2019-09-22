@@ -15,11 +15,11 @@ public class AirLockDoor : MonoBehaviour
         if (opening)
         {
             print("opening");
-            leftDoor.transform.localPosition += new Vector3(-2f, 0, 0);
-            rightDoor.transform.localPosition += new Vector3(2f, 0, 0);
+            leftDoor.transform.localPosition += new Vector3(-0.2f, 0, 0);
+            rightDoor.transform.localPosition += new Vector3(0.2f, 0, 0);
             //leftDoor.transform.Translate(-0.2f, 0, 0);
             //rightDoor.transform.Translate(0.2f, 0, 0);
-            distance += (0.02f);
+            distance += (0.2f);
             Debug.Log(leftDoor.transform.localPosition+" "+rightDoor.transform.localPosition);
             if (distance >= 2.6)
             {
@@ -35,7 +35,7 @@ public class AirLockDoor : MonoBehaviour
             rightDoor.transform.localPosition += new Vector3(-0.2f, 0, 0);
            // leftDoor.transform.Translate(0.2f, 0, 0);
             //rightDoor.transform.Translate(-0.2f, 0, 0);
-            distance += (0.02f);
+            distance += (0.2f);
             Debug.Log(distance);
             if (distance >= 2.6)
             {
