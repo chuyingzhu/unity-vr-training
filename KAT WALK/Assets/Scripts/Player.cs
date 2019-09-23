@@ -19,8 +19,8 @@ public class Player : MonoBehaviour {
                                             "Open the door.",
                                         	"Push the button to open door.",
                                             "Push the button to close door."};
-	private int currentStep = 0;
-    private int currentMarker = 0;
+	public int currentStep = 0;
+    public int currentMarker = 0;
     // 1 means the step has a marker, 0 means it does not
     // Step[2] has a temp marker, will use a real doorknob later
     private int[] stepInfo = new int [10] {1, 1, 1, 0, 1, 1, 1, 1, 0, 0};

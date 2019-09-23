@@ -122,6 +122,10 @@ public class Hand : MonoBehaviour {
             {
                 nakedModel.SetActive(!nakedModel.activeSelf);
             tyvexModel.SetActive(!tyvexModel.activeSelf);
+                if (m_Player.currentStep == 3)
+                {
+                    m_Player.NextStep();
+                }
             }
         }
         if (other.gameObject.tag == "Flask")
