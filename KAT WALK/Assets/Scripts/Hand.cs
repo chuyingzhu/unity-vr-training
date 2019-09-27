@@ -138,16 +138,6 @@ public class Hand : MonoBehaviour {
             }
 
         }
-        if (other.gameObject.tag == "trolley")
-        {
-
-            if (m_UseAction.GetStateDown(m_Pose.inputSource))
-            {
-                Debug.Log("trolley Clicked");
-                Pickup();
-            }
-
-        }
     }
     // Called when controller no longer collides with an object
     private void OnTriggerExit(Collider other) {
