@@ -15,6 +15,7 @@ TagManager:
   - CloseButton
   - Door
   - closet
+  - trolley
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Debugging_PC : MonoBehaviour
 {
-    Rigidbody rb;
+    Rigidbody rb;   
+    public float Force;
 
     // Update is called once per frame
     void Update()
@@ -18,9 +19,10 @@ public class Debugging_PC : MonoBehaviour
             {
                 if (hit.transform != null)
                 {
-                       if (rb = hit.transform.GetComponent<Rigidbody>())
+                    if (rb = hit.transform.GetComponent<Rigidbody>())
                     {
                         PrintName(hit.transform.gameObject);
+                        AddForce();
                     }
                 }
             }
@@ -30,6 +32,11 @@ public class Debugging_PC : MonoBehaviour
     void PrintName(GameObject obj)
     {
         print(obj.name);
+    }
+
+    void AddForce()
+    {
+        rb.AddForce(transform.forward * Force, ForceMode.Impulse);
     }
 
 }
