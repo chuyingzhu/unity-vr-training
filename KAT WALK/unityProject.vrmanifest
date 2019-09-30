@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.katwalk.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\ADMIN\\Documents\\GitHub\\unity-test\\KAT WALK\\actions.json",
+      "action_manifest_path": "C:\\Users\\VRULEZ-DT01\\Documents\\GitHub\\unity-vr-training\\KAT WALK\\actions.json",
       "strings": {
         "en_us": {
           "name": "KAT WALK [Testing]"
