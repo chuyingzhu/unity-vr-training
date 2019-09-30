@@ -15,22 +15,14 @@ public class GrabHandleBar : MonoBehaviour
     public SteamVR_Input_Sources inputSource = SteamVR_Input_Sources.Any;
     Rigidbody rb, rb1;
 
-    private void Awake()
-    {
-        grabPinch = SteamVR_Actions._default.GrabPinch;
-    }
     private void Update()
     {
         // If hands move too far away, auto ungrip
-        if(Vector3.Distance(target.position, transform.position) > 0.2f)
+        if(Vector3.Distance(target.position, transform.position) > 1.0f)
         {
-            //OnMouseUp(); //PC Debugging only
+            // OnMouseUp(); //PC Debugging only
             ReturntoInitPos();
         }
-    }
-
-    private void FixedUpdate()
-    {
         if (grabPinch.GetStateUp(inputSource))
         {
             ReturntoInitPos();
@@ -61,8 +53,7 @@ public class GrabHandleBar : MonoBehaviour
     }
 
     // PC Debugging only
-    /*
-    void OnMouseDown()
+    /*void OnMouseDown()
     {
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         // Store offset
@@ -72,7 +63,7 @@ public class GrabHandleBar : MonoBehaviour
     private Vector3 GetMouseWorldPos()
     {
         // Pixel coord.
-        Vector3 mousePoint = Input.mousePosition();
+        Vector3 mousePoint = Input.mousePosition;
 
         //z coord. of gameObject on screen
         mousePoint.z = mZCoord;
@@ -105,7 +96,7 @@ public class GrabHandleBar : MonoBehaviour
             rb1.velocity = Vector3.zero;
             rb1.angularVelocity = Vector3.zero;
         }
-    }
-    */
+    }*/
+    
 
 }
