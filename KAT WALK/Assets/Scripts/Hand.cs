@@ -24,7 +24,7 @@ public class Hand : MonoBehaviour {
     public Player m_Player;
     public Animator m_Animator;
 
-    private string[] tags = new string [6] {"Interactable", "Heavy", "Tyvex", "Flask", "OpenButton", "CloseButton"};
+    private string[] tags = new string [6] {"Interactable", "Heavy", "Tyvex", "Flask","trolley", "OpenButton"};
 
     // How much touchpad value affects speed (-1 to 1)
     public float m_Sensitivity = 0.1f;

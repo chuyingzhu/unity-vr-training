@@ -51,16 +51,18 @@ public class AirLockDoor : MonoBehaviour
     public void Open()
     {
         print("click");
-        if (!isOpen)
+        if ((!opening) && (!closing))
         {
-            opening = true;
-            print("open");
+            if (!isOpen)
+            {
+                opening = true;
+                print("open");
+            }
+            else
+            {
+                closing = true;
+                print("close");
+            }
         }
-        else
-        {
-            closing = true;
-            print("close");
-        }
-
     }
 }
