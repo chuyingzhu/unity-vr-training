@@ -90,6 +90,11 @@ public class Hand : MonoBehaviour {
                 other.gameObject.GetComponent<ColorManager>().changeToGreen();
             }
         }
+        else if (other.gameObject.CompareTag("Interactable") && other.gameObject.CompareTag("trolley"))
+        {
+            // As long as the other hand is not holding the same target, change to green
+            Debug.Log("touching handle");
+        }
         // Simply change to green
         else {
         	other.gameObject.GetComponent<ColorManager>().changeToGreen();

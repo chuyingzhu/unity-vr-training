@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 3604244418396396355}
   - component: {fileID: 3604244418396396352}
   - component: {fileID: 3604244418396396354}
+  - component: {fileID: 6826391004909301795}
   m_Layer: 8
   m_Name: GrabHandleBar
   m_TagString: Untagged
@@ -381,7 +382,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f5a10fbe7e60f47d3ba2be2fd68c0c62, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -445,6 +446,20 @@ MonoBehaviour:
   target: {fileID: 3604244419019293076}
   handle: {fileID: 3604244419019293076}
   Cart: {fileID: 3604244417944280725}
+--- !u!114 &6826391004909301795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604244418396396358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a377dc3b2b44706a37cef832ea94b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_ActiveHand: {fileID: 0}
 --- !u!1 &3604244419019293077
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +474,6 @@ GameObject:
   - component: {fileID: 3604244419019293078}
   - component: {fileID: 3604244419019293075}
   - component: {fileID: 3604244419019293079}
-  - component: {fileID: 832559331647889803}
   m_Layer: 8
   m_Name: HandleBar
   m_TagString: trolley
@@ -507,7 +521,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a34efe6cded4945f1aa88097d9623ea8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -572,20 +586,6 @@ MonoBehaviour:
   target: {fileID: 3604244418396396353}
   handle: {fileID: 3604244419019293076}
   force: 500
---- !u!114 &832559331647889803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3604244419019293077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a377dc3b2b44706a37cef832ea94b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_ActiveHand: {fileID: 0}
 --- !u!1001 &3604244418702373140
 PrefabInstance:
   m_ObjectHideFlags: 0
