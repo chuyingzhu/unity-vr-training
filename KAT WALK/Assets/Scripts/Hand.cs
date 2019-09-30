@@ -226,6 +226,10 @@ public class Hand : MonoBehaviour {
             m_Player.NextStep();
             return;
         }
+        if (m_CurrentInteractable.gameObject.CompareTag("trolley"))
+        {
+            Debug.Log("trolley pickup activated");
+        }
         // OpenButton
         if (m_CurrentInteractable.gameObject.CompareTag("OpenButton")) {
             m_CurrentInteractable.gameObject.SetActive(false);
@@ -282,6 +286,10 @@ public class Hand : MonoBehaviour {
         targetBody.angularVelocity = m_Pose.GetAngularVelocity();
         // Detach
         m_Joint.connectedBody = null;
+        if (m_CurrentInteractable.gameObject.CompareTag("trolley"))
+        {
+            Debug.Log("trolley drop activated");
+        }
         if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
             otherController.GetComponent<Hand>().m_Pose.enabled = true;
         }
