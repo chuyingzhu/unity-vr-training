@@ -113,6 +113,10 @@ public class Hand : MonoBehaviour {
             {
                 Debug.Log("OpenButton Clicked");
                 other.gameObject.GetComponentInParent<AirLockDoor>().Open();
+                if (m_Player.currentStep == 7)
+                {
+                    m_Player.NextStep();
+                }
             }
 
         }
@@ -218,7 +222,7 @@ public class Hand : MonoBehaviour {
         // Tyvex
         if (m_CurrentInteractable.gameObject.CompareTag("Tyvex")) {
             m_CurrentInteractable.gameObject.SetActive(false);
-            m_Player.NextStep();
+          //  m_Player.NextStep();
             return;
         }
         // OpenButton
@@ -226,7 +230,7 @@ public class Hand : MonoBehaviour {
             m_CurrentInteractable.gameObject.SetActive(false);
             // Play animation
             m_Animator.Play("Open", -1, 0f);
-            m_Player.NextStep();
+           // m_Player.NextStep();
             return;
         }
         // CloseButton
@@ -235,7 +239,7 @@ public class Hand : MonoBehaviour {
             // Reverse animation play
             m_Animator.SetFloat("Direction", -1.0f);
             m_Animator.Play("Open", -1, float.NegativeInfinity);
-            m_Player.NextStep();
+           // m_Player.NextStep();
             return;
         }
         // Position

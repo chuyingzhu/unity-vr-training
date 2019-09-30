@@ -82,7 +82,8 @@ public class Player : MonoBehaviour {
         if (currentStep < steps.Length) {
             // If the upcoming step has a marker
             if (stepInfo[currentStep] == 1) {
-                m_Markers[++currentMarker].SetActive(true);
+                currentMarker++;
+                m_Markers[currentMarker].SetActive(true);
             }
             label.text = steps[currentStep];
             uiLabel.text = steps[currentStep];
