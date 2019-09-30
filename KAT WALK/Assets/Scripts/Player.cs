@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
         }
        
     }
-    private void OnTriggerExit(Collision coll)
+    private void OnTriggerExit(Collider coll)
     {
         if (coll.gameObject.tag == "Autodoor")
         {
