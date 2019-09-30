@@ -334,8 +334,8 @@ GameObject:
   - component: {fileID: 3604244418396396381}
   - component: {fileID: 3604244418396396355}
   - component: {fileID: 3604244418396396354}
-  - component: {fileID: 6826391004909301795}
   - component: {fileID: 1022300400882365769}
+  - component: {fileID: 9128720534155996879}
   m_Layer: 8
   m_Name: GrabHandleBar
   m_TagString: trolley
@@ -433,20 +433,6 @@ MonoBehaviour:
   target: {fileID: 3604244419019293076}
   handle: {fileID: 3604244419019293076}
   Cart: {fileID: 3604244417944280725}
---- !u!114 &6826391004909301795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3604244418396396358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a377dc3b2b44706a37cef832ea94b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_ActiveHand: {fileID: 0}
 --- !u!64 &1022300400882365769
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -461,6 +447,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &9128720534155996879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604244418396396358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a377dc3b2b44706a37cef832ea94b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_ActiveHand: {fileID: 0}
 --- !u!1 &3604244419019293077
 GameObject:
   m_ObjectHideFlags: 0
