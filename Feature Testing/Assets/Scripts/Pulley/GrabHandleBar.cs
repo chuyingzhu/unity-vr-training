@@ -6,10 +6,9 @@ using Valve.VR;
 public class GrabHandleBar : MonoBehaviour
 {
     // PC Debugging only
-    /*private Vector3 mOffset;
-    private float mZCoord;*/
+    //private Vector3 mOffset;
+    //private float mZCoord;
     public Transform target;
-    public Transform handle;
     public Transform Cart;
     public SteamVR_Action_Boolean grabPinch;
     public SteamVR_Input_Sources inputSource = SteamVR_Input_Sources.Any;
@@ -20,7 +19,7 @@ public class GrabHandleBar : MonoBehaviour
         // If hands move too far away, auto ungrip
         if(Vector3.Distance(target.position, transform.position) > 1.0f)
         {
-            // OnMouseUp(); //PC Debugging only
+            //OnMouseUp(); //PC Debugging only
             ReturntoInitPos();
         }
         if (grabPinch.GetStateUp(inputSource))
@@ -42,14 +41,8 @@ public class GrabHandleBar : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
         rb1 = Cart.GetComponent<Rigidbody>();
-        var heading = target.position - handle.position;
-        var distance = heading.magnitude;
-        var direction = heading / distance;
-        if (float.IsNaN(direction.z) || direction.z == 0.0)
-        {
-            rb1.velocity = Vector3.zero;
-            rb1.angularVelocity = Vector3.zero;
-        }
+        rb1.velocity = Vector3.zero;
+        rb1.angularVelocity = Vector3.zero;
     }
 
     // PC Debugging only
@@ -88,14 +81,9 @@ public class GrabHandleBar : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
         rb1 = Cart.GetComponent<Rigidbody>();
-        var heading = target.position - handle.position;
-        var distance = heading.magnitude;
-        var direction = heading / distance;
-        if (float.IsNaN(direction.z) || direction.z == 0.0)
-        {
-            rb1.velocity = Vector3.zero;
-            rb1.angularVelocity = Vector3.zero;
-        }
+        rb1.velocity = Vector3.zero;
+        rb1.angularVelocity = Vector3.zero;
+
     }*/
     
 
