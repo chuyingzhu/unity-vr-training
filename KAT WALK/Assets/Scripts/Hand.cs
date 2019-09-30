@@ -103,6 +103,10 @@ public class Hand : MonoBehaviour {
             if (m_UseAction.GetStateDown(m_Pose.inputSource))
             {
                 other.gameObject.GetComponentInParent<Door>().Open();
+                if (m_Player.currentStep == 2)
+                {
+                    m_Player.NextStep();
+                }
             }
 
         }

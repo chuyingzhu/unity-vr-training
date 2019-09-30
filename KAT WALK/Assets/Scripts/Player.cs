@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
                                             "Open the door.",
                                             "Great! Now grab a Tyvex.",
                                             "Walk out of the door.",
-                                            "Walk to the reception table.",
+                                            "Walk to the next marker.",
                                             "Walk to the indicated door.",
                                             "Open the door.",
                                         	"Push the button to open door.",
