@@ -50,6 +50,19 @@ public class Player : MonoBehaviour {
             coll.gameObject.SetActive(false);
             NextStep();
         }
+        if (coll.gameObject.tag == "Autodoor")
+        {
+            print("collision with " + coll.gameObject.name);
+            coll.gameObject.GetComponentInParent<AirLockDoor>().Open();
+        }
+    }
+    private void OnCollisionExit(Collision coll)
+    {
+        if (coll.gameObject.tag == "Autodoor")
+        {
+            print("exiting " + coll.gameObject.name);
+            coll.gameObject.GetComponentInParent<AirLockDoor>().Open();
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

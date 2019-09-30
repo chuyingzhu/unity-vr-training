@@ -16,6 +16,7 @@ TagManager:
   - Door
   - closet
   - trolley
+  - Autodoor
   layers:
   - Default
   - TransparentFX
