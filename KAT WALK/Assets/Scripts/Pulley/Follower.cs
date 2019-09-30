@@ -28,14 +28,14 @@ public class Follower : MonoBehaviour
         var heading = target.position - handle.position;
         var distance = heading.magnitude;
         var direction = heading / distance;
-        // print(direction.z); For Debugging
+        print(direction.z); //For Debugging
         if (float.IsNaN(direction.z) || direction.z == 0.0)
         {
-            print("No interaction");
+         //   print("No interaction");
         }
         else
         {
-            rb.AddForce(transform.forward * (direction.z * force));
+            rb.AddForce(transform.forward * (-direction.z * force));
         }
     }
 }

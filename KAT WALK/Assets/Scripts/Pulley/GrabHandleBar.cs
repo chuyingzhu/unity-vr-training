@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿qwusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,10 +14,10 @@ public class GrabHandleBar : MonoBehaviour
     private void Update()
     {
         // If hands move too far away, auto ungrip
-        if(Vector3.Distance(target.position, transform.position) > 0.2f)
-        {
-            OnMouseUp();
-        }
+       // if(Vector3.Distance(target.position, transform.position) > 20.0f)
+      //  {
+      //      OnMouseUp();
+      //  }
     }
 
     private void OnMouseDown()
