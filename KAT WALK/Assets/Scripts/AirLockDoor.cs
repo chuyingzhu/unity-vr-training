@@ -9,7 +9,7 @@ public class AirLockDoor : MonoBehaviour
     bool opening = false;
     bool closing = false;
     float distance = 0.0f;
-
+    public float length;
     void Update()
     {
         if (opening)
@@ -23,7 +23,7 @@ public class AirLockDoor : MonoBehaviour
             //rightDoor.transform.Translate(0.2f, 0, 0);
             distance += (0.1f);
             Debug.Log(leftDoor.transform.localPosition+" "+rightDoor.transform.localPosition);
-            if (distance >= 2.6)
+            if (distance >= length)
             {
                 opening = false;
                 isOpen = true;
@@ -39,7 +39,7 @@ public class AirLockDoor : MonoBehaviour
             //rightDoor.transform.Translate(-0.2f, 0, 0);
             distance += (0.1f);
             Debug.Log(distance);
-            if (distance >= 2.6)
+            if (distance >= length)
             {
                 closing = false;
                 isOpen = false;

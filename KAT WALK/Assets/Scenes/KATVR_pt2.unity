@@ -444,7 +444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39231113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.98, y: -0.24, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 938980014}
@@ -461,8 +461,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.6258407, y: 4.307394, z: 3.4852219}
-  m_Center: {x: -1.4195883, y: 0.096930385, z: -0.16077483}
+  m_Size: {x: 3.4294329, y: 3.596623, z: 2.282875}
+  m_Center: {x: -1.5443888, y: -0.25845498, z: 0.26662397}
 --- !u!1001 &39976288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2474,6 +2474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftDoor: {fileID: 7813234436003128134}
   rightDoor: {fileID: 7358407783275223654}
+  length: 0
 --- !u!1 &273161447
 GameObject:
   m_ObjectHideFlags: 0
@@ -7386,8 +7387,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4b8e083294862429508c107736e225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftDoor: {fileID: 5659471457233360240}
-  rightDoor: {fileID: 761268152881234142}
+  leftDoor: {fileID: 761268152881234142}
+  rightDoor: {fileID: 5659471457233360240}
+  length: 2
 --- !u!1 &940610934
 GameObject:
   m_ObjectHideFlags: 0
@@ -7749,6 +7751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftDoor: {fileID: 7813234436003128134}
   rightDoor: {fileID: 7358407783275223654}
+  length: 2.6
 --- !u!1001 &1029463428
 PrefabInstance:
   m_ObjectHideFlags: 0
