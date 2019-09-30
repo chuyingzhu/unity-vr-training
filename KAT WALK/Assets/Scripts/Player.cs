@@ -50,13 +50,9 @@ public class Player : MonoBehaviour {
             coll.gameObject.SetActive(false);
             NextStep();
         }
-        if (coll.gameObject.tag == "Autodoor")
-        {
-            print("collision with " + coll.gameObject.name);
-            coll.gameObject.GetComponentInParent<AirLockDoor>().Open();
-        }
+       
     }
-    private void OnCollisionExit(Collision coll)
+    private void OnTriggerExit(Collision coll)
     {
         if (coll.gameObject.tag == "Autodoor")
         {
@@ -72,6 +68,11 @@ public class Player : MonoBehaviour {
             other.gameObject.GetComponent<ColorManager>().changeToGreen();
             other.gameObject.SetActive(false);
             NextStep();
+        }
+        if (other.gameObject.tag == "Autodoor")
+        {
+            print("collision with " + other.gameObject.name);
+            other.gameObject.GetComponentInParent<AirLockDoor>().Open();
         }
     }
     public void NextStep() {
