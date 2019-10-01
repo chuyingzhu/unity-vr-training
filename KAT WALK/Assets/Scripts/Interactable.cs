@@ -6,7 +6,7 @@ using Valve.VR;
 [RequireComponent(typeof(Rigidbody))]
 public class Interactable : MonoBehaviour {
     public Vector3 m_Offset = Vector3.zero;
-
+    //
     [HideInInspector]
     public Hand m_ActiveHand = null;
     Quaternion newRotation;
