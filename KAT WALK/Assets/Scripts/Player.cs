@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public GameObject uiText;
     public TextMeshProUGUI uiLabel;
     public GameObject Quiz;
+    public GameObject uiBg;
     private string[] steps = new string [9] {"Welcome. Please Walk to the door.0",
                                             "Good job! Next, walk to the change room.1",
                                             "Open the door.2",
@@ -77,21 +78,25 @@ public class Player : MonoBehaviour {
     }
     public void NextStep() {
         // Index range check
+
+ 	currentStep++;
         Debug.Log("step " + currentStep);
-        currentStep++;
+       
         if (currentStep < steps.Length) {
             // If the upcoming step has a marker
-            if (stepInfo[currentStep] == 1) {
+            if (stepInfo[currentStep] == 1&&currentMarker<5) {
                 currentMarker++;
                 m_Markers[currentMarker].SetActive(true);
             }
             label.text = steps[currentStep];
             uiLabel.text = steps[currentStep];
+		 Debug.Log(uiLabel.text);
         }
         if (currentStep == steps.Length)
         {
            // Quiz.SetActive(true);
             uiLabel.gameObject.SetActive(false);
+		 uiBg.SetActive(false);
         }
     }
 }
