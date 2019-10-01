@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028426, g: 0.22571544, b: 0.30692366, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028384, g: 0.22571467, b: 0.3069225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4871,6 +4871,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1252972637044215073, guid: a30cdc76165fbfb43839b87c81834ff9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252972637044215073, guid: a30cdc76165fbfb43839b87c81834ff9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252972637044215073, guid: a30cdc76165fbfb43839b87c81834ff9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252972637044215074, guid: a30cdc76165fbfb43839b87c81834ff9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1252972637044215085, guid: a30cdc76165fbfb43839b87c81834ff9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4921,26 +4941,6 @@ PrefabInstance:
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 1544504144}
-    - target: {fileID: 1252972637044215073, guid: a30cdc76165fbfb43839b87c81834ff9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252972637044215073, guid: a30cdc76165fbfb43839b87c81834ff9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.015
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252972637044215073, guid: a30cdc76165fbfb43839b87c81834ff9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252972637044215074, guid: a30cdc76165fbfb43839b87c81834ff9,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a30cdc76165fbfb43839b87c81834ff9, type: 3}
 --- !u!4 &493409636 stripped
@@ -8906,6 +8906,7 @@ MonoBehaviour:
   uiLabel: {fileID: 1170525702}
   Quiz: {fileID: 475726942}
   uiBg: {fileID: 1806875946}
+  pointer: {fileID: 1409000107}
   currentStep: 0
   currentMarker: 0
 --- !u!136 &1029463434
@@ -11726,6 +11727,12 @@ Transform:
 --- !u!20 &1409000106 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 398341810696957284, guid: 06e7228731b9341579ddb5330bb86a51,
+    type: 3}
+  m_PrefabInstance: {fileID: 1409000104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1409000107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8358784555784741864, guid: 06e7228731b9341579ddb5330bb86a51,
     type: 3}
   m_PrefabInstance: {fileID: 1409000104}
   m_PrefabAsset: {fileID: 0}

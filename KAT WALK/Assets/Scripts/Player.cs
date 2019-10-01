@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     public TextMeshProUGUI uiLabel;
     public GameObject Quiz;
     public GameObject uiBg;
+    public GameObject pointer;
     private string[] steps = new string [9] {"Welcome. Please Walk to the door.0",
                                             "Good job! Next, walk to the change room.1",
                                             "Open the door.2",
@@ -94,7 +95,8 @@ public class Player : MonoBehaviour {
         }
         if (currentStep == steps.Length)
         {
-           // Quiz.SetActive(true);
+            Quiz.SetActive(true);
+            pointer.SetActive(true);
             uiLabel.gameObject.SetActive(false);
 		 uiBg.SetActive(false);
         }

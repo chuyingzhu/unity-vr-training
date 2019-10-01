@@ -12,9 +12,9 @@ public class MCManager : MonoBehaviour {
     public CanvasGroup MCCanvasGroup;
 
     private Text buttonText;
-    private string[] questions = new string[3] {"1. What is 1+1?", "2. What is 9*8?", "3. What is 12^2?"};
-    private string[,] choices = new string[3,4] {{"1","2","3","4"}, {"no","yes","72","0"}, {"144","idk","infinity","undefined"}};
-    private int[] answers = new int[3] {1, 2, 0};
+    private string[] questions = new string[3] {"1. What do you need to do in the change room?", "2. What color is the liquid in the flasks?", "3. How many instructions are you given?"};
+    private string[,] choices = new string[3,4] {{"close the door","put on tyvex","look at mirror","nothing"}, {"red","green","blue","clear"}, {"6","7","8","9"}};
+    private int[] answers = new int[3] {1, 2, 3};
     private int questionNumber = 0;
     private int correct = 0;
 
