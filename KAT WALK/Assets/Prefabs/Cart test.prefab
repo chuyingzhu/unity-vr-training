@@ -350,8 +350,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3604244418396396358}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.000000043905203, y: -0.0000023841858, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3604244419019293076}
@@ -433,6 +433,10 @@ MonoBehaviour:
   target: {fileID: 3604244419019293076}
   handle: {fileID: 3604244419019293076}
   Cart: {fileID: 3604244417944280725}
+  grabPinch:
+    actionPath: 
+    needsReinit: 0
+  inputSource: 0
 --- !u!64 &1022300400882365769
 MeshCollider:
   m_ObjectHideFlags: 0
