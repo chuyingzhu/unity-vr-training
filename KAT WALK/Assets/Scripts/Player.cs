@@ -95,8 +95,8 @@ public class Player : MonoBehaviour {
         }
         if (currentStep == steps.Length)
         {
-            Quiz.SetActive(true);
-            pointer.SetActive(true);
+          //  Quiz.SetActive(true);
+          //  pointer.SetActive(true);
             uiLabel.gameObject.SetActive(false);
 		 uiBg.SetActive(false);
         }
