@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028426, g: 0.22571544, b: 0.30692366, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028384, g: 0.22571467, b: 0.3069225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -461,8 +461,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.4294329, y: 4.6902385, z: 2.282875}
-  m_Center: {x: -1.5443888, y: -0.8052628, z: 0.26662397}
+  m_Size: {x: 5.020689, y: 4.82848, z: 2.574871}
+  m_Center: {x: -1.2598901, y: 0.28265095, z: 0.23463583}
 --- !u!1001 &39976288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3829,7 +3829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419136500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.93, y: 3.61, z: 32.41}
+  m_LocalPosition: {x: -9.385, y: 3.369, z: 34.899}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2027283847}
@@ -7750,6 +7750,7 @@ MonoBehaviour:
   label: {fileID: 644298016}
   uiText: {fileID: 1170525700}
   uiLabel: {fileID: 1170525702}
+  Quiz: {fileID: 0}
   currentStep: 0
   currentMarker: 0
 --- !u!136 &1029463434
@@ -8870,7 +8871,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Placeholder text
+  m_text: Welcome. Please walk to the entrance.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8939,10 +8940,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1170525702}
-    characterCount: 16
+    characterCount: 37
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 5
+    wordCount: 6
     linkCount: 0
     lineCount: 1
     pageCount: 1

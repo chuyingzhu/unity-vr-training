@@ -9,16 +9,17 @@ public class Player : MonoBehaviour {
     public TextMeshPro label;
     public GameObject uiText;
     public TextMeshProUGUI uiLabel;
-    private string[] steps = new string [10] {"Welcome. Please Walk to the door.",
-                                            "Good job! Next, walk to the change room.",
-                                            "Open the door.",
-                                            "Great! Now grab a Tyvex.",
-                                            "Walk out of the door.",
-                                            "Walk to the next marker.",
-                                            "Walk to the indicated door.",
-                                            "Open the door.",
-                                        	"Push the button to open door.",
-                                            "Push the button to close door."};
+    public GameObject Quiz;
+    private string[] steps = new string [10] {"Welcome. Please Walk to the door.0",
+                                            "Good job! Next, walk to the change room.1",
+                                            "Open the door.2",
+                                            "Great! Now grab a Tyvex.3",
+                                            "Walk out of the door.4",
+                                            "Walk to the next marker.5",
+                                            "Walk to the indicated door.6",
+                                            "Open the door.7",
+                                        	"Push the button to open door.8",
+                                            "Push the button to close door.9"};
 	public int currentStep = 0;
     public int currentMarker = 0;
     // 1 means the step has a marker, 0 means it does not
@@ -87,6 +88,11 @@ public class Player : MonoBehaviour {
             }
             label.text = steps[currentStep];
             uiLabel.text = steps[currentStep];
+        }
+        if (currentStep == steps.Length)
+        {
+            Quiz.SetActive(true);
+            uiLabel.gameObject.SetActive(false);
         }
     }
 }
