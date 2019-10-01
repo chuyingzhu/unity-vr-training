@@ -17,15 +17,15 @@ public class GrabHandleBar : MonoBehaviour
     private void Update()
     {
         // If hands move too far away, auto ungrip
-        if(Vector3.Distance(target.position, transform.position) > 1.0f)
+        if (Vector3.Distance(target.position, transform.position) > 1.0f)
         {
             //OnMouseUp(); //PC Debugging only
             ReturntoInitPos();
         }
-        if (grabPinch.GetStateUp(inputSource))
+        /*if (grabPinch.GetStateUp(inputSource))
         {
             ReturntoInitPos();
-        }
+        }*/
     }
 
 
