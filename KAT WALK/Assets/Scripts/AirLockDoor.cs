@@ -33,8 +33,8 @@ public class AirLockDoor : MonoBehaviour
         if (closing)
         {
             print("closing");
-            leftDoor.transform.localPosition += new Vector3(+0.2f, 0, 0);
-            rightDoor.transform.localPosition += new Vector3(-0.2f, 0, 0);
+            leftDoor.transform.localPosition += new Vector3(+0.1f, 0, 0);
+            rightDoor.transform.localPosition += new Vector3(-0.1f, 0, 0);
            // leftDoor.transform.Translate(0.2f, 0, 0);
             //rightDoor.transform.Translate(-0.2f, 0, 0);
             distance += (0.1f);
