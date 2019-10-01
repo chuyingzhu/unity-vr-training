@@ -10,16 +10,15 @@ public class Player : MonoBehaviour {
     public GameObject uiText;
     public TextMeshProUGUI uiLabel;
     public GameObject Quiz;
-    private string[] steps = new string [10] {"Welcome. Please Walk to the door.0",
+    private string[] steps = new string [9] {"Welcome. Please Walk to the door.0",
                                             "Good job! Next, walk to the change room.1",
                                             "Open the door.2",
                                             "Great! Now grab a Tyvex.3",
                                             "Walk out of the door.4",
                                             "Walk to the next marker.5",
-                                            "Walk to the indicated door.6",
-                                            "Open the door.7",
-                                        	"Push the button to open door.8",
-                                            "Push the button to close door.9"};
+                                            "Push the trolley to the end of the hall.6",
+                                        	"Push the button to open door.7",
+                                            "Push the button to close door.8"};
 	public int currentStep = 0;
     public int currentMarker = 0;
     // 1 means the step has a marker, 0 means it does not

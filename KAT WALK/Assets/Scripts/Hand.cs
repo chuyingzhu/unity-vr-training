@@ -106,6 +106,7 @@ public class Hand : MonoBehaviour {
                 if (m_Player.currentStep == 2)
                 {
                     m_Player.NextStep();
+                    m_Player.m_Markers[m_Player.currentMarker].SetActive(false);
                 }
             }
 
@@ -117,7 +118,7 @@ public class Hand : MonoBehaviour {
             {
                 Debug.Log("OpenButton Clicked");
                 other.gameObject.GetComponentInParent<AirLockDoor>().Open();
-                if (m_Player.currentStep == 7)
+                if (m_Player.currentStep == 7||m_Player.currentStep==8)
                 {
                     m_Player.NextStep();
                 }
