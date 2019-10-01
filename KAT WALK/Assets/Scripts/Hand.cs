@@ -260,12 +260,14 @@ public class Hand : MonoBehaviour {
         else
         {
             m_CurrentInteractable.ApplyOffset(transform);
-        }
-        // Attach
-        Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
-        m_Joint.connectedBody = targetBody;
-        if (m_CurrentInteractable.gameObject.CompareTag("Heavy")) {
-            otherController.GetComponent<Hand>().m_Pose.enabled = false;
+
+            // Attach
+            Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
+            m_Joint.connectedBody = targetBody;
+            if (m_CurrentInteractable.gameObject.CompareTag("Heavy"))
+            {
+                otherController.GetComponent<Hand>().m_Pose.enabled = false;
+            }
         }
         // Set active hand
         m_CurrentInteractable.m_ActiveHand = this;
@@ -281,6 +283,13 @@ public class Hand : MonoBehaviour {
     public void Drop() {
         // Null check
         if (!m_CurrentInteractable) {
+            return;
+        }
+        else if (m_CurrentInteractable.gameObject.CompareTag("trolley"))
+        {
+            m_CurrentInteractable.isTrolley = false;
+            m_CurrentInteractable.m_ActiveHand = null;
+            m_CurrentInteractable = null;
             return;
         }
         /*

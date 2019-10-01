@@ -9,6 +9,8 @@ public class Interactable : MonoBehaviour {
     //
     [HideInInspector]
     public Hand m_ActiveHand = null;
+    public bool isTrolley = false;
+    private Transform tHand;
     Quaternion newRotation;
     // Virtual to fit different needs (eg. gun vs grenade)
     public virtual void Action() {
@@ -16,7 +18,15 @@ public class Interactable : MonoBehaviour {
             transform.GetChild(0).gameObject.GetComponent<LiquidManager>().FillContainer();
         }
     }
-
+    private void Update()
+    {
+        if (isTrolley)
+        {
+            newRotation = Quaternion.Euler(0, tHand.transform.eulerAngles.y, 0);
+            this.transform.rotation = newRotation;
+            transform.position = new Vector3(tHand.transform.position.x, transform.position.y, tHand.transform.position.z);
+        }
+    }
     public void ApplyOffset(Transform hand) {
         transform.SetParent(hand);
         transform.localRotation = Quaternion.identity;
@@ -25,8 +35,10 @@ public class Interactable : MonoBehaviour {
     }
     public void ApplyOffsetT(Transform hand)
     {
+        tHand = hand;
         newRotation = Quaternion.Euler(0, hand.transform.eulerAngles.y, 0);
         this.transform.rotation = newRotation;
-        transform.position = new Vector3(hand.transform.position.x, this.transform.position.y, hand.transform.position.z);
+        transform.position = new Vector3(hand.transform.position.x,transform.position.y, hand.transform.position.z);
+        Debug.Log("trolley " + this.gameObject.name + " activated");
     }
 }
