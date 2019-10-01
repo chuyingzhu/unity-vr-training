@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lab.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Pointer.unity
     guid: 576d0090bd5b04a2191d72fd38631e1a
+  - enabled: 1
+    path: Assets/Scenes/KATVR_pt2.unity
+    guid: 18bb20d1171e03a4ab0fcad1ee025dc1
   m_configObjects: {}
