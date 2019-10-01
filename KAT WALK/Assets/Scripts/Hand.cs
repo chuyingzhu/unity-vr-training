@@ -197,6 +197,11 @@ public class Hand : MonoBehaviour {
                 other.gameObject.GetComponent<ColorManager>().changeToRed();
             }
         }
+        else if (other.gameObject.CompareTag("trolley"))
+        {
+            if (!otherController.GetComponent<Hand>().m_ContactInteractables.Contains(other.gameObject.GetComponent<Interactable>()))
+                other.gameObject.GetComponent<ColorManager>().changeToRed();
+        }
     }
 
     public void Pickup() {
