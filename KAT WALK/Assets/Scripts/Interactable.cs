@@ -36,6 +36,7 @@ public class Interactable : MonoBehaviour {
     public void ApplyOffsetT(Transform hand)
     {
         tHand = hand;
+        isTrolley = true;
         newRotation = Quaternion.Euler(0, hand.transform.eulerAngles.y, 0);
         this.transform.rotation = newRotation;
         transform.position = new Vector3(hand.transform.position.x,transform.position.y, hand.transform.position.z);
