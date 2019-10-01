@@ -12,13 +12,16 @@ public class ButtonTrigger : MonoBehaviour
     // Event for when triggered
     public UnityEvent TriggerHit;
     private bool checker = false;
-
+    public GameObject theLight;
     // Detecting if a GameObj with trigger has collided
     void OnTriggerEnter(Collider obj)
     {
         TriggerHit.Invoke();
     }
-
+    public void LightUp()
+    {
+        theLight.SetActive(true);
+    }
     // Make a desired event, HAS TO BE PUBLIC
     public void PrinttoCanvas(string text)
     {
