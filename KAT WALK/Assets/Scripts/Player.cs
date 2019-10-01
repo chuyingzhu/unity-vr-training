@@ -90,7 +90,7 @@ public class Player : MonoBehaviour {
         }
         if (currentStep == steps.Length)
         {
-            Quiz.SetActive(true);
+           // Quiz.SetActive(true);
             uiLabel.gameObject.SetActive(false);
         }
     }

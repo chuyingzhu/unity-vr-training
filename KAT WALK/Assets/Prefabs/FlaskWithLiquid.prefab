@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Offset: {x: 0, y: 0, z: 0}
   m_ActiveHand: {fileID: 0}
+  isTrolley: 0
 --- !u!114 &7642386391501163373
 MonoBehaviour:
   m_ObjectHideFlags: 0
