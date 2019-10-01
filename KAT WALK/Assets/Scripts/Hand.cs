@@ -248,7 +248,14 @@ public class Hand : MonoBehaviour {
         }
         // Position
         // m_CurrentInteractable.transform.position = transform.position;
-        m_CurrentInteractable.ApplyOffset(transform);
+        if (m_CurrentInteractable.gameObject.CompareTag("trolley"))
+        {
+            m_CurrentInteractable.ApplyOffsetT(transform);
+        }
+        else
+        {
+            m_CurrentInteractable.ApplyOffset(transform);
+        }
         // Attach
         Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
         m_Joint.connectedBody = targetBody;
